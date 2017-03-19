@@ -1,0 +1,27 @@
+#!/bin/bash
+
+exclude='generic-hwe'
+items=$(dpkg --get-selections | grep linux-image | grep -v $exclude | awk '{print $1}' | sort)
+current=$(uname -r)
+
+buffer=
+index=1
+
+for linuximage in $items
+do
+    echo $linuximage | grep $current &> /dev/null
+
+    if [ $? -eq 0 ]
+    then
+        status="Active"
+    else
+        status="Installed"
+    fi
+
+    buffer="$buffer $linuximage $status off "
+    index=$((index+1))
+done
+
+selected=$(dialog --checklist 'Choose versions:' 10 80 $index $buffer >/dev/tty 2>&1)
+
+sudo apt purge $selected
