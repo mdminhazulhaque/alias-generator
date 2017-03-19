@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CPPFILE=$1
+TITLE=$(basename $CPPFILE .cpp)
+enscript --color=1 -C -Ecpp -B -t $TITLE -o - $CPPFILE | ps2pdf - $TITLE.pdf

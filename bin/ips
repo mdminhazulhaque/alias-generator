@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for IFACE in $(ls /sys/class/net)
+do
+    [ $IFACE == "lo" ] && continue
+    IP=$(ifconfig $IFACE | grep 'inet addr:' | cut -d: -f2 | awk '{print $1}')
+    [ "$IP" != "" ] && echo $IFACE $IP
+done

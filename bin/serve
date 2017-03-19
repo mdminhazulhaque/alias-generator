@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+PORT='8000'
+
+if [ "$1" == "" ]
+then
+    php -S "0.0.0.0:$PORT"
+    exit 0
+fi
+
+case $1 in
+    php)
+        php -S "0.0.0.0:$PORT"
+        ;;
+    ruby|rb)
+        ruby -run -e httpd . -p $PORT
+        ;;
+    python|py)
+        python -m SimpleHTTPServer $PORT
+        ;;
+    *)
+        echo "Invalid option"
+        exit 1
+        ;;
+esac

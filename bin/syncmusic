@@ -1,0 +1,34 @@
+#!/bin/bash
+
+[ $USER == 'root' ] && exit 1
+[ -t 1 ] || exit 1
+
+SRC=
+DST=
+
+if [ $(uname) == 'Darwin' ]
+then
+    echo "Running in MacOS mode"
+    SRC='/Users/minhaz/Music/iTunes/iTunes Media/Music'
+    DST='/Volumes/Passport/music'
+elif [ $(uname) == 'Linux' ]
+then
+    echo "Running in Linux mode"
+    SRC='/media/data/music'
+    DST='/media/minhaz/Passport/music'
+fi
+
+if [ "$1" == "backup" ]
+then
+    rsync -rltDv --delete $SRC/ $DST
+elif [ "$1" == "restore" ]
+then
+    rsync -rltDv --delete $DST/ $SRC
+else
+    echo "Usage `basename $0` [backup|restore]"
+    exit 1
+fi
+
+echo "syncing..."
+sync
+exit 0

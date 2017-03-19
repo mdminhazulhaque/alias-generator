@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# mkmakefile: Create Makefile for all cpp files in current directory
+
+echo 'CFLAGS = `pkg-config --cflags libname`'
+echo 'LINKER = `pkg-config --libs libname`'
+echo 'BINARY = program'
+
+SOURCES=()
+
+for CPPFILE in *.cpp
+do
+    if [ "$CPPFILE" == "main.cpp" ]
+    then
+        continue
+    fi
+    
+    BASENAME=$(basename $CPPFILE .cpp)
+    SOURCES+=($BASENAME.o)
+    echo "$BASENAME.o: $BASENAME.cpp"
+    echo -e "\tg++ -g -c -Wall $BASENAME.cpp \$(CFLAGS)"
+done
+
+echo "all: ${SOURCES[@]}"
+echo -e "\tg++ -o \$(BINARY) main.cpp ${SOURCES[@]} \$(LINKER)"
+
+echo "clean:"
+echo -e "\trm -f *~ *.o \$(BINARY)"

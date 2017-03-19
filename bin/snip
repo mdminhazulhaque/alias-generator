@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Create snippets from commandline
+# snip hello.sh will create bash template
+# snip hello.py will create python template
+
+filename=$1
+snippet=${1##*.}
+
+if [ -f $HOME/.snippets/$snippet ]
+then
+    cp $HOME/.snippets/$snippet $filename
+    exit 0
+else
+    echo "No snippet found for $filename"
+    exit 1
+fi

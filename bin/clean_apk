@@ -1,0 +1,38 @@
+#!/usr/bin/python
+
+from glob import glob
+from os.path import basename
+from os import unlink
+from os import remove
+
+uniq = []
+dupl = []
+
+apkpath = '/media/data/tools/apks/'
+
+for apk in glob(apkpath + '*.apk'):
+    apkinfo = basename(apk).split('_')
+    
+    if len(apkinfo) == 2:
+        if apkinfo[0] not in uniq:
+            uniq.append(apkinfo[0])
+        else:
+            dupl.append(apkinfo[0])
+
+if not dupl:
+    exit(0)
+
+for apk in dupl:
+    dapks = glob(apkpath + apk + '_*.apk')
+    i = 0
+    print
+    for dapk in dapks:
+        print "[%d] %s" % (i, basename(dapk))
+        i += 1
+    
+    index = int(input('Index to delete?: '))
+    try:
+        unlink(dapks[index])
+    except:
+        print 'Cannot delete'
+    

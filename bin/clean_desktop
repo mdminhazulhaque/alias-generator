@@ -1,0 +1,12 @@
+#!/bin/sh
+
+sudo -v
+
+# Remove Java shortcuts
+sudo rm -f /usr/share/applications/JB-*
+sudo rm -f /usr/share/applications/openjdk*
+
+# Remove Mono shortcuts
+sudo rm -f /usr/share/applications/monodoc.desktop
+sudo rm -f /usr/share/applications/libreoffice-math.desktop
+sudo rm -f /usr/share/applications/display.im6.desktop

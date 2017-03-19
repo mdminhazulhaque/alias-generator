@@ -1,0 +1,21 @@
+#!/bin/bash
+
+[ $USER != 'root' ] || exit 1
+[ -t 1 ] || exit 1
+[ $(uname -s) == 'Linux' ] || exit 1
+
+SRC=/media/data
+DEST=/media/minhaz/Passport
+
+[ -r $SRC ] || exit 1
+[ -w $DEST ] || exit 1
+
+rm -rf $DEST/\$RECYCLE.BIN
+rm -rf $DEST/System\ Volume\ Information
+
+rsync -rltDuv --exclude ".*" --delete $SRC/books/  $DEST/books
+rsync -rltDuv --exclude ".*" --delete $SRC/tools/  $DEST/tools
+rsync -rltuDv /home/minhaz/.login.kdbx $DEST
+
+echo "syncing ..."
+sync

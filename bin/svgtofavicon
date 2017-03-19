@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source=$1
+
+inkscape -e apple-touch-icon.png -w 144 -h 144 $source
+inkscape -e favicon.png -w 32 -h 32 $source
+convert favicon.png favicon.ico
+rm favicon.png

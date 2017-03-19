@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# mkcbp: Create Codeblocks project
+# Usage: mkcbp <project> [-c|-cpp]
+
+PRO_NAME=${1/ /_}
+PRO_TYPE=$2
+
+if [ "$PRO_NAME" != "" ] && [ "$PRO_TYPE" == "-c" -o "$PRO_TYPE" == "-cpp" ]
+then
+    if [ -d "$1" ]
+    then
+        echo "Project $PRO_NAME already exists"
+        exit 1
+    fi
+    
+    mkdir -p $PRO_NAME
+    cd $PRO_NAME
+else
+    echo "Usage: `basename $0` [projectname] [-c|-cpp]"
+    exit 1
+fi
+
+echo '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+    <FileVersion major="1" minor="6" />
+    <Project>
+        <Option title="'$PRO_NAME'" />
+        <Option pch_mode="2" />
+        <Option compiler="gcc" />
+        <Build>
+            <Target title="Debug">
+                <Option output="bin/Debug/'$PRO_NAME'" prefix_auto="1" extension_auto="1" />
+                <Option object_output="obj/Debug/" />
+                <Option type="1" />
+                <Option compiler="gcc" />
+                <Compiler>
+                    <Add option="-g" />
+                </Compiler>
+            </Target>
+            <Target title="Release">
+                <Option output="bin/Release/'$PRO_NAME'" prefix_auto="1" extension_auto="1" />
+                <Option object_output="obj/Release/" />
+                <Option type="1" />
+                <Option compiler="gcc" />
+                <Compiler>
+                    <Add option="-O2" />
+                </Compiler>
+                <Linker>
+                    <Add option="-s" />
+                </Linker>
+            </Target>
+        </Build>
+        <Compiler>
+            <Add option="-Wall" />
+            <Add option="-fexceptions" />
+        </Compiler>' > $PRO_NAME.cbp
+
+case $PRO_TYPE in
+
+-c)
+echo "#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // TODO
+    return 0;
+}
+" > main.c
+echo '<Unit filename="main.c" />' >> $PRO_NAME.cbp
+;;
+
+-cpp)
+echo "#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    // TODO
+    string s(\"Hello World\");
+    cout << s << endl;
+    return 0;
+}
+" > main.cpp
+echo '<Unit filename="main.cpp" />' >> $PRO_NAME.cbp
+;;
+esac
+
+echo '<Extensions>
+            <code_completion />
+            <debugger />
+        </Extensions>
+    </Project>
+</CodeBlocks_project_file>' >> $PRO_NAME.cbp

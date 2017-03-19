@@ -1,0 +1,46 @@
+#!/bin/bash
+
+backupfile="stylish.db"
+chrome_db_dir=
+stylish_uuid="chrome-extension_fjnbnpbmkenffdnngjfgmeleoegfcffe_0"
+
+if [ ! -z $2 ]
+then
+    backupfile="$2"
+fi
+
+case $(uname -s) in
+    Linux)  chrome_db_dir="$HOME/.config/google-chrome/Default/databases" ;;
+    Darwin) chrome_db_dir="$HOME/Library/Application Support/Google/Chrome/Default/databases" ;;
+esac
+
+stylish_db_id=$(sqlite3 \
+                "$chrome_db_dir/Databases.db" \
+                "select id from Databases where origin = '$stylish_uuid'")
+
+stylish_db="$chrome_db_dir/$stylish_uuid/$stylish_db_id"
+
+case $1 in
+    backup)
+        if [ ! -f "$backupfile" ]
+        then
+            cp "$stylish_db" "$backupfile"
+        else
+            echo "Backup file $backupfile already exists"
+            exit 1
+        fi
+        ;;
+    restore)
+        if [ -f "$backupfile" ]
+        then
+            cp "$backupfile" "$stylish_db"
+        else
+            echo "Backup file $backupfile does not exist"
+            exit 1
+        fi
+        ;;
+    *)
+        echo "`basename $0` backup|restore"
+        exit 1
+        ;;
+esac
