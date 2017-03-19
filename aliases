@@ -131,7 +131,7 @@ alias facerm='rm -f ~/face.png'
 
 # sct
 alias cool='sct 6500'
-alias warm='sct 3400'                                                                                                                                       
+alias warm='sct 3400'
 
 # turn off display
 alias doff='xset dpms force off'
