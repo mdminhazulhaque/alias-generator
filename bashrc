@@ -27,5 +27,3 @@ else
     export PS1="\[\e[1;32m\]\w\[\e[m\]\[\e[1;33m\] >\[\e[m\] "
     alias vps="cat /etc/hosts | grep aplvps | awk '{print \$1}' | pbcopy"
 fi
-
-. /home/minhaz/.dotfiles/aliases
