@@ -38,6 +38,11 @@ alias ll='ls -alF'
 alias la='ls -1A'
 alias lh='ls -lh'
 
+# file and dir utils
+alias md='mkdir -p'
+alias ex='extract'
+alias f='file'
+
 # grep color
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -46,6 +51,7 @@ alias egrep='egrep --color=auto'
 # find command
 alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
+alias fe='find . -type f -executable -iname'
 alias duh='du -hs'
 
 # password generators
@@ -58,6 +64,8 @@ alias q='exit'
 
 # make
 alias mk='make'
+alias mk4='make -j4'
+alias mk8='make -j8'
 alias mkc='make clean'
 alias mkv='make V=s'
 alias mkm='make menuconfig'
@@ -75,6 +83,8 @@ alias ffmpeg='ffmpeg -hide_banner'
 alias ffinfo='ffprobe -hide_banner'
 
 # ssh
+alias s='ssh'
+alias sv='ssh -v'
 alias sshk='killall ssh'
 alias sshf='rm -f ~/.ssh/known_hosts'
 
@@ -135,14 +145,18 @@ alias warm='sct 3400'
 
 # turn off display
 alias doff='xset dpms force off'
-alias lock='qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock; xset dpms force off'
+alias coffee='qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock; xset dpms force off'
 
 # adb
-# alias adba="adb shell 'pm list packages -3' | sed -e 's/^package://' | sort"
-# alias adbd='adb devices'
-# alias adbs='adb shell'
+alias adba="adb shell 'pm list packages -3' | sed -e 's/^package://' | sort"
+alias adbd='adb devices'
+alias adbs='adb shell'
 
+# network
 alias dig='dig +noall +answer'
+alias p='ping'
+alias ns='nslookup'
+
 alias title='qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1'
 
 alias qmake5='/home/minhaz/.Qt5.7.0/5.7/gcc_64/bin/qmake'
