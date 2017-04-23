@@ -108,6 +108,7 @@ alias gm='git merge'
 alias gpl='git pull'
 alias gps='git push'
 alias gs='git status'
+alias gcl2="git clone -b master --single-branch --depth 1"
 
 # cd to directory
 # alias data='cd /media/data'
