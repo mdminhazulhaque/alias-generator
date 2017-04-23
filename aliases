@@ -164,5 +164,9 @@ alias qmake5='/home/minhaz/.Qt5.7.0/5.7/gcc_64/bin/qmake'
 alias lua='/usr/bin/lua5.1'
 
 # mosquitto
-alias pub="mosquitto_pub -v"
+alias pub="mosquitto_pub"
 alias sub="mosquitto_sub -v"
+
+function ol() {
+  chrome "http://localhost:${1:-3000}"
+}
