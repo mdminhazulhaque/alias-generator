@@ -1,7 +1,7 @@
 #!/bin/bash
 
 exclude='generic-hwe'
-items=$(dpkg --get-selections | grep linux-image | grep -v $exclude | awk '{print $1}' | sort)
+items=$(dpkg --get-selections | egrep "linux-image|linux-headers" | grep -v $exclude | awk '{print $1}' | sort)
 current=$(uname -r)
 
 buffer=
