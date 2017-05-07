@@ -2,7 +2,7 @@
 
 exclude='generic-hwe'
 items=$(dpkg --get-selections | egrep "linux-image|linux-headers" | grep -v $exclude | awk '{print $1}' | sort)
-current=$(uname -r)
+current=$(uname -r | sed s/-generic//g)
 
 buffer=
 index=1
