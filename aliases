@@ -123,6 +123,7 @@ alias now='date +%Y-%m-%d\ %H:%M:%S'
 # dd with progress report
 alias dd='dcfldd'
 alias rsync='rsync -rltuDv'
+alias rsyncdotdel='rsync -rltDuv --exclude ".*" --delete'
 
 # jekyll
 # alias js='jekyll serve --watch --incremental --trace'
