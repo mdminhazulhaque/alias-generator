@@ -43,6 +43,8 @@ alias md='mkdir -p'
 alias ex='extract'
 alias f='file'
 alias ups="ps -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command"
+alias cpd="cp -r"
+alias realpath="readlink -f"
 
 # grep color
 alias grep='grep --color=auto'
