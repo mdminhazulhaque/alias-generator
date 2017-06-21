@@ -37,6 +37,7 @@ alias l='ls -1'
 alias ll='ls -alF'
 alias la='ls -1A'
 alias lh='ls -lh'
+alias lr="ls -1t"
 
 # file and dir utils
 alias md='mkdir -p'
@@ -64,6 +65,9 @@ alias ph='apg -a1 -m 16 -M NCLS'
 # terminal
 alias c='clear'
 alias q='exit'
+
+# docker
+alias dockerlast='docker start -a -i `docker ps -q -l`'
 
 # make
 alias mk='make'
@@ -110,7 +114,8 @@ alias gm='git merge'
 alias gpl='git pull'
 alias gps='git push'
 alias gs='git status'
-alias gcl2="git clone -b master --single-branch --depth 1"
+alias gcls="git clone -b master --single-branch --depth 1"
+alias gundo="git reset HEAD~"
 
 # cd to directory
 # alias data='cd /media/data'
@@ -171,6 +176,6 @@ alias lua='/usr/bin/lua5.1'
 alias pub="mosquitto_pub"
 alias sub="mosquitto_sub -v"
 
-function ol() {
-  chrome "http://localhost:${1:-3000}"
-}
+# peer list
+alias peersip='arp-scan 192.168.11.0/24 -Ieno1 | tail -n +3 | head -n -3 | awk "{print \$1,\$2}" | sort -k 1 --version-sort'
+alias peersmac='arp-scan 192.168.11.0/24 -Ieno1 | tail -n +3 | head -n -3 | awk "{print \$2,\$1}" | sort -k 1 --version-sort'
