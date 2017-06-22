@@ -99,6 +99,7 @@ alias sshf='rm -f ~/.ssh/known_hosts'
 alias lower="tr 'A-Z' 'a-z'"
 alias upper="tr 'a-z' 'A-Z'"
 alias nospace="tr -d ' '"
+alias title="sed 's/[^ ]\+/\L\u&/g'"
 
 # git
 alias ga='git add'
@@ -167,7 +168,7 @@ alias dig='dig +noall +answer'
 alias p='ping'
 alias ns='nslookup'
 
-alias title='qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1'
+#alias title='qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1'
 
 alias qmake5='/home/minhaz/.Qt5.7.0/5.7/gcc_64/bin/qmake'
 alias lua='/usr/bin/lua5.1'
