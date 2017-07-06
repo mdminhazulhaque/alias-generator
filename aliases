@@ -56,6 +56,8 @@ alias egrep='egrep --color=auto'
 alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
 alias fe='find . -type f -executable -iname'
+ffmin() { find . -type f -size +$1; }
+ffmax() { find . -type f -size -$1; }
 alias duh='du -hs'
 
 # password generators
@@ -79,6 +81,7 @@ alias mkm='make menuconfig'
 
 # interpreters
 alias py='python'
+alias py2='python'
 alias py3='python3'
 alias rb='ruby'
 alias pl='perl'
