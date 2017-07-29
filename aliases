@@ -183,3 +183,6 @@ alias sub="mosquitto_sub -v"
 # peer list
 alias peersip='arp-scan 192.168.11.0/24 -Ieno1 | tail -n +3 | head -n -3 | awk "{print \$1,\$2}" | sort -k 1 --version-sort'
 alias peersmac='arp-scan 192.168.11.0/24 -Ieno1 | tail -n +3 | head -n -3 | awk "{print \$2,\$1}" | sort -k 1 --version-sort'
+
+# namaz alert
+namaz() { sleep $1 && kdialog --msgbox "Namaz!!!"; }

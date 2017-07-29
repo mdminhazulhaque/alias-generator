@@ -1,0 +1,83 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+import urllib
+import BaseHTTPServer
+
+HTTP_HEAD = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>http clip</title>
+    <meta name="description" content="Easy, online clipboard to be used across multiple PC/VMs">
+    <meta name="author" content="Md. Minhazul Haque">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>httpclip</h3>
+                <form role="form" method="post" action="save">
+                    <div class="form-group">
+                        <pre><textarea class="form-control" rows="10" name="content">"""
+
+HTTP_TAIL = """</textarea></pre>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Save
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+"""
+
+content = ""
+
+def file_get_contents(filename):
+    with open(filename) as f:
+        file_content = f.read().rstrip("\n")
+    return file_content
+
+class RequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):    
+    def do_GET (self):
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            global content
+            self.wfile.write(HTTP_HEAD + content + HTTP_TAIL)
+            return
+    def do_POST(self):
+        if self.path.endswith("/save"):
+            content_len = int(self.headers.getheader('Content-length', 0))
+            post_body = self.rfile.read(content_len)
+            
+            global content
+            content = urllib.unquote(post_body[8:]).decode('utf-8')
+            content = urllib.unquote_plus(content)
+            
+            self.send_response(301)
+            self.send_header("Content-type", "text/html")
+            self.send_header("Location", "/")
+            
+            self.end_headers()
+            self.wfile.write("")
+            return
+
+def main(argv):
+    port = 3000
+    httpd = BaseHTTPServer.HTTPServer(('', port), RequestHandler)
+    print("Starting HTTP Server at http://localhost:{}".format(port))
+    httpd.serve_forever()
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
