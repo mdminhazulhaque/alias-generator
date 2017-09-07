@@ -19,19 +19,13 @@ fi
 if [ $USER == "root" ]
 then
     export PS1="\[\e[1;31m\]\w\[\e[m\]\[\e[1;33m\] >\[\e[m\] "
-    alias uart1152="picocom -b115200 /dev/ttyUSB0"
-    alias uart5760="picocom -b57600 /dev/ttyUSB0"
-    alias nets="netstat -plutn"
-    alias teamviewerd="/opt/teamviewer/tv_bin/teamviewerd"
 else
     export PS1="\[\e[1;32m\]\w\[\e[m\]\[\e[1;33m\] >\[\e[m\] "
-    export VPS=$(cat /etc/hosts | grep aplvps | awk '{print $1}')
 fi
 
-if [ -f "$HOME/.dotfiles/aliases" ]; then
-    . "$HOME/.dotfiles/aliases"
+if [ -f "/home/minhaz/.dotfiles/aliases" ]; then
+    . "/home/minhaz/.dotfiles/aliases"
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export ANDROID_HOME=/work/android/android-sdk
+# export ANDROID_HOME=/work/android/android-sdk
+export A=192.168.11
