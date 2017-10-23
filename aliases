@@ -3,8 +3,8 @@
 # when run on my sexy slim macbook
 if [ $(uname -s) == 'Darwin' ]
 then
-    alias bilai='/Applications/Banglalion_Connection_Manager.app/Contents/MacOS/WiMAXDevDetector'
-    alias keepassx='open /Applications/KeePassX.app'
+#     alias bilai='/Applications/Banglalion_Connection_Manager.app/Contents/MacOS/WiMAXDevDetector'
+#     alias keepassx='open /Applications/KeePassX.app'
     alias nosleep='pmset noidle'
     alias brin='brew install'
     alias brud='brew update'
@@ -92,9 +92,11 @@ alias pl='perl'
 
 # downloaders
 alias dl='wget'
+alias cr='curl -s'
+alias pj='python -m json.tool'
 alias yd='youtube-dl --prefer-ffmpeg'
-alias ffmpeg='ffmpeg -hide_banner'
-alias ffinfo='ffprobe -hide_banner'
+alias fm='ffmpeg -hide_banner'
+alias fp='ffplay -hide_banner'
 
 # network
 alias s='ssh'
@@ -174,6 +176,7 @@ alias coffee='qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock; xset dpms for
 alias adba="adb shell 'pm list packages -3' | sed -e 's/^package://' | sort"
 alias adbd='adb devices'
 alias adbs='adb shell'
+alias adbl='adb logcat'
 logcat() { adb logcat --pid $(adb shell ps | grep "$1" | awk '{print $2}'); }
 
 # network
@@ -182,9 +185,8 @@ alias p='ping'
 alias ns='nslookup'
 
 #alias title='qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1'
-
-alias qmake5='/home/minhaz/.Qt5.7.0/5.7/gcc_64/bin/qmake'
-alias lua='/usr/bin/lua5.1'
+# alias qmake5='/home/minhaz/.Qt5.7.0/5.7/gcc_64/bin/qmake'
+# alias lua='/usr/bin/lua5.1'
 
 # mosquitto
 alias pub="mosquitto_pub"
@@ -203,3 +205,4 @@ alias uart5760="picocom -b57600 /dev/ttyUSB0"
 
 # other applications
 alias teamviewerd="/opt/teamviewer/tv_bin/teamviewerd"
+alias nginxd="/etc/init.d/nginx start"
