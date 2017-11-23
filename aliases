@@ -209,3 +209,5 @@ alias uart5760="picocom -b57600 /dev/ttyUSB0"
 # other applications
 alias teamviewerd="/opt/teamviewer/tv_bin/teamviewerd"
 alias nginxd="/etc/init.d/nginx start"
+
+repeat() { local n="$1"; shift; while ((n-- > 0)); do "$@"; done; }
