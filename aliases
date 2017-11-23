@@ -46,7 +46,7 @@ alias chmodx="chmod +x"
 alias md='mkdir -p'
 alias ex='extract'
 alias f='file'
-alias ups="ps -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command"
+alias ups="ps -u \$USER -o pid,%cpu,%mem,start,time,bsdtime,command"
 alias cpd="cp -r"
 alias realpath="readlink -f"
 
@@ -65,8 +65,8 @@ alias duh='du -hs'
 alias dub='du -b'
 
 # password generators
-alias pe='apg -a1 -m 16 -M NCL'
-alias ph='apg -a1 -m 16 -M NCLS'
+# alias pe='apg -a1 -m 16 -M NCL'
+# alias ph='apg -a1 -m 16 -M NCLS'
 
 # terminal
 alias c='clear'
@@ -85,7 +85,7 @@ alias mkm='make menuconfig'
 
 # interpreters
 alias py='python'
-alias py2='python'
+alias py2='python2'
 alias py3='python3'
 alias rb='ruby'
 alias pl='perl'
@@ -104,13 +104,16 @@ alias t='telnet'
 alias sv='ssh -v'
 alias sshk='killall ssh'
 alias sshf='rm -f ~/.ssh/known_hosts'
-alias nets="netstat -plutn"
+alias ns="netstat -plutn"
 
 # text converter
 alias lower="tr 'A-Z' 'a-z'"
 alias upper="tr 'a-z' 'A-Z'"
 alias nospace="tr -d ' '"
 alias title="sed 's/[^ ]\+/\L\u&/g'"
+alias quote="python -c 'import json; import sys; print json.dumps(sys.stdin.read())'"
+alias b64e="base64"
+alias b64d="base64 -d"
 
 # git
 alias ga='git add'
@@ -155,14 +158,14 @@ alias rsyncdotdel='rsync -rltDuv --exclude ".*" --delete'
 # apt
 alias au='apt update'
 alias ai='apt install'
-alias adu='apt dist-update'
+alias afu='apt full'
 alias ac='apt clean'
 alias aac='apt autoclean'
 alias aar='apt autoremove'
 
 # face
-alias face='cp ~/.face ~/face.png'
-alias facerm='rm -f ~/face.png'
+# alias face='cp ~/.face ~/face.png'
+# alias facerm='rm -f ~/face.png'
 
 # sct
 alias cool='sct 6500'
@@ -173,16 +176,16 @@ alias doff='xset dpms force off'
 alias coffee='qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock; xset dpms force off'
 
 # adb
-alias adba="adb shell 'pm list packages -3' | sed -e 's/^package://' | sort"
-alias adbd='adb devices'
-alias adbs='adb shell'
-alias adbl='adb logcat'
-logcat() { adb logcat --pid $(adb shell ps | grep "$1" | awk '{print $2}'); }
+# alias adba="adb shell 'pm list packages -3' | sed -e 's/^package://' | sort"
+# alias adbd='adb devices'
+# alias adbs='adb shell'
+# alias adbl='adb logcat'
+# logcat() { adb logcat --pid $(adb shell ps | grep "$1" | awk '{print $2}'); }
 
 # network
 alias dig='dig +noall +answer'
 alias p='ping'
-alias ns='nslookup'
+alias nsl='nslookup'
 
 #alias title='qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1'
 # alias qmake5='/home/minhaz/.Qt5.7.0/5.7/gcc_64/bin/qmake'
