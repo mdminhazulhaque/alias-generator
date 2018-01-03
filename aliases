@@ -184,7 +184,7 @@ alias coffee='qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock; xset dpms for
 
 # network
 alias dig='dig +noall +answer'
-alias p='ping'
+alias p='ping -c 4 -i 0.5'
 alias nsl='nslookup'
 
 #alias title='qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1'

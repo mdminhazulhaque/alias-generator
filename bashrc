@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+#!/bin/bash
 
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE=5000
@@ -28,4 +28,5 @@ if [ -f "/home/minhaz/.dotfiles/aliases" ]; then
 fi
 
 # export ANDROID_HOME=/work/android/android-sdk
-export A=192.168.11
+export a=192.168.11
+export m=f8:b5:68:a0
