@@ -3,8 +3,6 @@
 # when run on my sexy slim macbook
 if [ $(uname -s) == 'Darwin' ]
 then
-#     alias bilai='/Applications/Banglalion_Connection_Manager.app/Contents/MacOS/WiMAXDevDetector'
-#     alias keepassx='open /Applications/KeePassX.app'
     alias nosleep='pmset noidle'
     alias brin='brew install'
     alias brud='brew update'
@@ -28,7 +26,7 @@ alias sudo='sudo '
 # cd to directory
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ....='cd ../../../'
+# alias ....='cd ../../../'
 alias ~='cd ~'
 
 # list cmd
@@ -46,7 +44,7 @@ alias chmodx="chmod +x"
 alias md='mkdir -p'
 alias ex='extract'
 alias f='file'
-alias ups="ps -u \$USER -o pid,%cpu,%mem,start,time,bsdtime,command"
+alias psu="ps -u \$USER -o pid,%cpu,%mem,start,time,bsdtime,command"
 alias cpd="cp -r"
 alias realpath="readlink -f"
 
@@ -87,8 +85,8 @@ alias mkm='make menuconfig'
 alias py='python'
 alias py2='python2'
 alias py3='python3'
-alias rb='ruby'
-alias pl='perl'
+# alias rb='ruby'
+# alias pl='perl'
 
 # downloaders
 alias dl='wget'
@@ -135,12 +133,15 @@ alias gundo="git reset HEAD~"
 
 # cd to directory
 alias work='cd /work'
-alias mtk='cd /work/mtk/RT288x_SDK/source'
-alias tftp='cd /work/archive/tftpd'
-alias http='cd /work/http'
+alias repo='cd /work/repo'
+alias cpp='cd /work/repo/router-cpp'
+alias www='cd /work/repo/router-www'
+alias rt='cd /work/mtk/RT288x_SDK/source'
+# alias tftp='cd /work/archive/tftpd'
+# alias http='cd /work/http'
 
 # others
-alias now='date +%Y-%m-%d\ %H:%M:%S'
+# alias now='date +%Y-%m-%d\ %H:%M:%S'
 
 # codeblocks clean
 # alias cbc='rm -rf bin obj *.depend *.layout'
@@ -148,7 +149,7 @@ alias now='date +%Y-%m-%d\ %H:%M:%S'
 # dd with progress report
 alias dd='dcfldd'
 alias rsync='rsync -rltuDv'
-alias rsyncdotdel='rsync -rltDuv --exclude ".*" --delete'
+# alias rsyncdotdel='rsync -rltDuv --exclude ".*" --delete'
 
 # jekyll
 # alias js='jekyll serve --watch --incremental --trace'

@@ -1,0 +1,4 @@
+bin/brokerstat
+bin/rmgmt-ui
+bin/shviz
+bin/subd
