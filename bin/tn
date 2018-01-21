@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+
+set ip [lindex $argv 0]
+spawn telnet 192.168.11.${ip}
+expect "login:"
+send "admin\r"
+expect "Password:"
+send "admin\r"
+interact
