@@ -75,7 +75,7 @@ class RequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
 def main(argv):
     port = 3000
-    httpd = BaseHTTPServer.HTTPServer(('', port), RequestHandler)
+    httpd = BaseHTTPServer.HTTPServer(('0.0.0.0', port), RequestHandler)
     print("Starting HTTP Server at http://localhost:{}".format(port))
     httpd.serve_forever()
 
