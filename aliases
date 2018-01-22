@@ -163,6 +163,7 @@ alias afu='apt full'
 alias ac='apt clean'
 alias aac='apt autoclean'
 alias aar='apt autoremove'
+alias update='apt update && apt full-upgrade'
 
 # face
 # alias face='cp ~/.face ~/face.png'

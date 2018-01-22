@@ -16,8 +16,9 @@ if [ -f "$1" ]; then
     *.7z) 7z x "$1" ;;
     *.xz) unxz "$1" ;;
     *.exe) cabextract "$1" ;;
-    *) echo "cannot extract $1" ;;
+    *) echo "Cannot extract $1" ;;
   esac
 else
-  echo "$1 doesn't exist"
+  echo "File doesn't exist"
+  exit 1
 fi
