@@ -50,8 +50,11 @@ alias realpath="readlink -f"
 
 # grep color
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
+alias hrep='history | grep'
+alias drep='grep -r'
+alias lrep='grep -ilr'
 
 # find command
 alias ff='find . -type f -iname'
