@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+
+# simply do the following to generate dates for month 12
+# curl -sL https://gist.github.com/minhazul-haque/38e25bfad9b9ef3b3bad9117cef39865/raw | python - 12 2017
+
+from datetime import date
+from calendar import monthrange
+from sys import argv
+
+# check if any argument is provided
+try:
+    MONTH = int(argv[1])
+    YEAR = int(argv[2])
+# if not, generate dates for current month
+except:
+    MONTH = date.today().month
+    YEAR = date.today().year
+
+WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+WEEKENDS = ["Friday", "Saturday"]
+
+for day in xrange(1, monthrange(YEAR, MONTH)[1] + 1):
+    someday = date(YEAR, MONTH, day)
+    weekday = WEEKDAYS[someday.weekday()]
+    
+    if weekday not in WEEKENDS: print someday, '(' + weekday + ')'
