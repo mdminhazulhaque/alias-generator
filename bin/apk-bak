@@ -1,0 +1,16 @@
+#!/bin/sh
+# Minhaz, the bhalo chele
+
+backupdir="apk-$$"
+
+mkdir -p $backupdir && cd $backupdir
+
+for pkgname in $(adb shell 'pm list packages -3' | sed -e 's/^package://' | sort)
+do
+    if [ ! -f $pkgname.apk ]
+    then
+        path=$(adb shell pm path $pkgname | sed 's/^package://')
+        echo $path
+        adb pull -p $path $pkgname.apk
+    fi
+done
