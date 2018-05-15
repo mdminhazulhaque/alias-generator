@@ -11,8 +11,8 @@ alias bindings='cd /work/repo/gridpal.bindings'
 # alias http='cd /work/http'
 
 # openhab
-alias oaddons='cd /usr/share/openhab2/addons'
-alias oh='cd /etc/openhab2'
+alias ohad='cd /usr/share/openhab2/addons'
+alias ohetc='cd /etc/openhab2'
 alias ohrestart='systemctl restart openhab2'
 alias ohstart='systemctl start openhab2'
 alias ohstop='systemctl stop openhab2'
