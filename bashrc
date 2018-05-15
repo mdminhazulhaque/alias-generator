@@ -23,12 +23,11 @@ else
     export PS1="\[\e[1;32m\]\w\[\e[m\]\[\e[1;33m\] >\[\e[m\] "
 fi
 
-if [ -f "/home/minhaz/.dotfiles/aliases" ]; then
-    . "/home/minhaz/.dotfiles/aliases"
-fi
+. "/home/minhaz/.dotfiles/aliases"
+. "/home/minhaz/.dotfiles/paths"
 
 # export ANDROID_HOME=/work/android/android-sdk
 export a=192.168.11
 export m=f8:b5:68:a0
 
-PATH="$HOME/.dotfiles/bin:/opt/buildroot-gcc550/bin:$PATH"
+# PATH="$HOME/.dotfiles/bin:/opt/buildroot-gcc550/bin:$PATH"

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Md. Minhazul Haque <mdminhazulhaque@gmail.com>
+
 # when run on my sexy slim macbook
 if [ $(uname -s) == 'Darwin' ]
 then
@@ -43,7 +45,7 @@ alias chmodx="chmod +x"
 alias md='mkdir -p'
 alias ex='extract'
 alias f='file'
-alias psu="ps -u \$USER -o pid,%cpu,%mem,start,time,bsdtime,command"
+alias ps="ps -o pid,%cpu,%mem,start,time,bsdtime,command"
 alias cpd="cp -r"
 alias realpath="readlink -f"
 
@@ -131,16 +133,7 @@ alias gpl='git pull'
 alias gps='git push'
 alias gs='git status'
 alias gcls="git clone -b master --single-branch --depth 1"
-alias gundo="git reset HEAD~"
-
-# cd to directory
-alias work='cd /work'
-alias repo='cd /work/repo'
-alias cpp='cd /work/repo/router-cpp'
-alias www='cd /work/repo/router-www'
-alias rt='cd /work/mtk/RT288x_SDK/source'
-# alias tftp='cd /work/archive/tftpd'
-# alias http='cd /work/http'
+alias gundo="git reset --hard HEAD"
 
 # others
 # alias now='date +%Y-%m-%d\ %H:%M:%S'
@@ -202,6 +195,7 @@ alias sub="mosquitto_sub -v"
 # peer list
 alias peersip='arp-scan 192.168.11.0/24 -Ieno1 | tail -n +3 | head -n -3 | awk "{print \$1,\$2}" | sort -k 1 --version-sort'
 alias peersmac='arp-scan 192.168.11.0/24 -Ieno1 | tail -n +3 | head -n -3 | awk "{print \$2,\$1}" | sort -k 1 --version-sort'
+alias peers='peersmac | grep f8:b5:68:a'
 
 # namaz alert
 namaz() { sleep $1 && kdialog --msgbox "Namaz!!!"; }
@@ -212,6 +206,6 @@ alias uart5760="picocom -b57600 /dev/ttyUSB0"
 
 # other applications
 alias teamviewerd="/opt/teamviewer/tv_bin/teamviewerd"
-alias nginxd="/etc/init.d/nginx start"
+alias nginxd="mkdir -p /var/log/nginx && nginx"
 
 repeat() { local n="$1"; shift; while ((n-- > 0)); do "$@"; done; }
