@@ -17,3 +17,5 @@ alias ohrestart='systemctl restart openhab2'
 alias ohstart='systemctl start openhab2'
 alias ohstop='systemctl stop openhab2'
 alias ohlogs='openhab-cli showlogs'
+alias ohcc='rm -rf /var/lib/openhab2/tmp/* /var/lib/openhab2/cache/* /var/lib/openhab2/config/org/openhab/*'
+

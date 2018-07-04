@@ -45,7 +45,7 @@ alias chmodx="chmod +x"
 alias md='mkdir -p'
 alias ex='extract'
 alias f='file'
-alias ps="ps -o pid,%cpu,%mem,start,time,bsdtime,command"
+alias ps="ps -axo pid,%cpu,%mem,start,time,bsdtime,command"
 alias cpd="cp -r"
 alias realpath="readlink -f"
 
