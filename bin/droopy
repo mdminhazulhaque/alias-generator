@@ -608,7 +608,8 @@ errortmpl = '''
 '''
 
 linkurltmpl = '''<div id="linkurl" class="box">
-<a>File Uploader</a></div>'''
+<a href="http://stackp.online.fr/droopy-ip.php?port=%(port)d&ssl=%(ssl)d"> %(discover)s
+</a></div>'''
 
 
 default_templates = {

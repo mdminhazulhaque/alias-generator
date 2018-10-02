@@ -1,9 +1,13 @@
 #!/usr/bin/expect -f
 
 set ip [lindex $argv 0]
+set username [lindex $argv 1]
+set password [lindex $argv 2]
+if {$username eq ""} {set username admin}
+if {$password eq ""} {set password admin}
 spawn telnet 192.168.11.${ip}
 expect "login:"
-send "admin\r"
+send ${username}\r
 expect "Password:"
-send "admin\r"
+send ${password}\r
 interact

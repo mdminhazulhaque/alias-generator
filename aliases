@@ -39,7 +39,8 @@ alias lh='ls -lh'
 alias lr="ls -1t"
 
 # coreutils
-alias chmodx="chmod +x"
+alias chx="chmod +x"
+alias hex="xxd -p"
 
 # file and dir utils
 alias md='mkdir -p'
@@ -104,9 +105,9 @@ alias fp='ffplay -hide_banner'
 alias s='ssh'
 alias t='telnet'
 alias sv='ssh -v'
-alias sshk='killall ssh'
+# alias sshk='killall ssh'
 alias sshf='rm -f ~/.ssh/known_hosts'
-alias ns="netstat -plutn"
+alias ns="netstat -pltn"
 
 # text converter
 alias lower="tr 'A-Z' 'a-z'"
@@ -154,7 +155,7 @@ alias rsync='rsync -rltuDv'
 # apt
 alias au='apt update'
 alias ai='apt install'
-alias afu='apt full'
+alias afu='apt full-upgrade'
 alias ac='apt clean'
 alias aac='apt autoclean'
 alias aar='apt autoremove'
@@ -185,8 +186,6 @@ alias p='ping -c 4 -i 0.5'
 alias nsl='nslookup'
 
 #alias title='qdbus org.kde.konsole $KONSOLE_DBUS_SESSION setTitle 1'
-# alias qmake5='/home/minhaz/.Qt5.7.0/5.7/gcc_64/bin/qmake'
-# alias lua='/usr/bin/lua5.1'
 
 # mosquitto
 alias pub="mosquitto_pub"
@@ -207,5 +206,11 @@ alias uart5760="picocom -b57600 /dev/ttyUSB0"
 # other applications
 alias teamviewerd="/opt/teamviewer/tv_bin/teamviewerd"
 alias nginxd="mkdir -p /var/log/nginx && nginx"
+alias brokerstat="/work/repo/apl-scripts/brokerstat/brokerstat"
+alias subd="/work/repo/apl-scripts/mosquitto/subd"
+alias shviz="/work/repo/apl-scripts/shviz/shviz"
+alias rmgmt="/work/repo/apl-scripts/rmgmt/rmgmt"
+alias eclipse-oh2="/work/eclipse-openhab2/openhab2-master/eclipse/eclipse"
 
 repeat() { local n="$1"; shift; while ((n-- > 0)); do "$@"; done; }
+iptomac() { arping -I eno1 -w 1 -c 1 $1 2>&1 | grep 'Unicast reply from' | grep -o "\[.*\]" | tr -d [] | lower; }

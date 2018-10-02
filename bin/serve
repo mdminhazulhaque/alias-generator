@@ -1,25 +1,18 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-PORT='8000'
+import socket
+import os
+import sys
 
-if [ "$1" == "" ]
-then
-    php -S "0.0.0.0:$PORT"
-    exit 0
-fi
+def get_ip_address():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    return s.getsockname()[0]
 
-case $1 in
-    php)
-        php -S "0.0.0.0:$PORT"
-        ;;
-    ruby|rb)
-        ruby -run -e httpd . -p $PORT
-        ;;
-    python|py)
-        python -m SimpleHTTPServer $PORT
-        ;;
-    *)
-        echo "Invalid option"
-        exit 1
-        ;;
-esac
+port = "8000"
+url = "http://" + get_ip_address() + ":" + port
+
+print("Server started at " + url)
+#os.system("google-chrome " + url + " &")
+os.system("python3 -m http.server " + port + " > /dev/null")
+# os.system("php -S 0.0.0.0:" + port + " &> /dev/null")

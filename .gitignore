@@ -1,4 +1,2 @@
-bin/brokerstat
-bin/rmgmt-ui
-bin/shviz
-bin/subd
+bin/etcher
+

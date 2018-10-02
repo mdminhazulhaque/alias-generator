@@ -28,6 +28,6 @@ fi
 
 # export ANDROID_HOME=/work/android/android-sdk
 export a=192.168.11
-export m=f8:b5:68:a0
+export m=f8:b5:68:a
 
-# PATH="$HOME/.dotfiles/bin:/opt/buildroot-gcc550/bin:$PATH"
+PATH="/home/minhaz/.dotfiles/bin:$PATH" #:/opt/buildroot-gcc550/bin:$PATH"

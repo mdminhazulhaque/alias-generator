@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Usage
+# $ mac.sh f8:b5:68:a0:00:00 +1
+# f8:b5:68:a0:00:01
+# $mac.sh f8:b5:68:a0:00:00 -1
+# f8:b5:68:9f:ff:ff
+
+MAC=$1
+OP=$2
+
+if [ -z "$1" ]
+then
+    MAC=f8:b5:68:a0:00:00
+fi
+
+if [ -z "$2" ]
+then
+    OP=+1
+fi
+
+NUMBER=$(echo 0x$MAC | tr -d : | xargs printf "%d")
+NEXT=$(echo $NUMBER$OP | bc)
+printf "%x" $NEXT | fold -w2 | paste -sd :
