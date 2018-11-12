@@ -25,6 +25,7 @@ fi
 
 . "/home/minhaz/.dotfiles/aliases"
 . "/home/minhaz/.dotfiles/paths"
+. "/home/minhaz/.dotfiles/apps"
 
 # export ANDROID_HOME=/work/android/android-sdk
 export a=192.168.11

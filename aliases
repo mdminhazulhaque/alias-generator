@@ -205,14 +205,7 @@ namaz() { sleep $1 && kdialog --msgbox "Namaz!!!"; }
 alias uart1152="picocom -b115200 /dev/ttyUSB0"
 alias uart5760="picocom -b57600 /dev/ttyUSB0"
 
-# other applications
-alias teamviewerd="/opt/teamviewer/tv_bin/teamviewerd"
-alias nginxd="mkdir -p /var/log/nginx && nginx"
-alias brokerstat="/work/repo/apl-scripts/brokerstat/brokerstat"
-alias subd="/work/repo/apl-scripts/mosquitto/subd"
-alias shviz="/work/repo/apl-scripts/shviz/shviz"
-alias rmgmt="/work/repo/apl-scripts/rmgmt/rmgmt"
-alias eclipse-oh2="/work/eclipse-openhab2/openhab2-master/eclipse/eclipse"
-
 repeat() { local n="$1"; shift; while ((n-- > 0)); do "$@"; done; }
 iptomac() { arping -I eno1 -w 1 -c 1 $1 2>&1 | grep 'Unicast reply from' | grep -o "\[.*\]" | tr -d [] | lower; }
+printeron() { systemctl start cups; systemctl start cups-browsed; }
+printeroff() { systemctl stop cups-browsed; systemctl stop cups; }
