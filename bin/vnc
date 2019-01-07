@@ -1,5 +1,0 @@
-#/usr/bin/env bash
-
-port=$(grep -A3 "^Host $1" /home/minhaz/.ssh/config | grep Port | awk '{print $2}')
-vnc_port=$((port+1))
-VNC-Viewer-6.18.625-Linux-x64 "85.214.224.138:$vnc_port"

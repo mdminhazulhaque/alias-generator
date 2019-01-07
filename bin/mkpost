@@ -12,7 +12,7 @@ try:
     tag = sys.argv[2]
     date = time.strftime("%Y-%m-%d")
 except:
-    print "Usage: mkpost [title] [tag]"
+    print "Usage: mkpost <title> <tag>"
     exit(1)
 
 content = """---
@@ -28,9 +28,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.
 echo 'Hello, World!'
 ```
 
-![Image Alt](https://minhazulhaque.com)
+![Image Alt](https://mdminhazulhaque.com)
 
-Click [here](https://minhazulhaque.com)
+Click [here](https://mdminhazulhaque.com)
 
 """.format(title, date, tag)
 

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-inkscape -z "$1" -e "$2"
-

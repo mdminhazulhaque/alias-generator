@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Copy command to clipboard including arguments (escaped) so you can use it on another terminal
-# Example: echo "hello world" 42 "another world" --value=42 --another="foo & bar"
-# Clipboard Content: echo hello\ world 42 another\ world --value=42 --another=foo\ \&\ bar
-
-printf "%q"" " "$@" | xclip -selection clip

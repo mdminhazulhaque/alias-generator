@@ -1,38 +1,16 @@
-#!/usr/bin/python
+#!/bin/sh
+# Minhaz, the bhalo chele
 
-from glob import glob
-from os.path import basename
-from os import unlink
-from os import remove
-from os import sep
-from distutils.version import LooseVersion
+backupdir="apk-$$"
 
-apkpath = '/media/minhaz/Passport/tools/apks'
+mkdir -p $backupdir && cd $backupdir
 
-if not apkpath.endswith("/"): apkpath += sep
-
-apks = [basename(apk).split('_', 1)[0] for apk in glob(apkpath + '*.apk')]
-uniq = set(apks)
-dupl = 0
-
-for apk_basename in uniq:
-    apklist_sorted = sorted(
-        glob(apkpath + apk_basename + '_*.apk'),
-        key = lambda apk: LooseVersion(basename(apk).split('_', 1)[1])
-        )
-    if len(apklist_sorted) > 1:
-        print '*', basename(apk_basename).split('_', 1)[0]
-        apklist_sorted.pop()
-        for a in apklist_sorted:
-            try:
-                print '  - rm', a
-                unlink(a)
-                dupl += 1
-                #print "rm", apkpath
-            except:
-                print 'Error deleting', apkpath
-
-if dupl > 0:
-    print "Removed", dupl, "duplicates"
-else:
-    print "No duplicates"
+for pkgname in $(adb shell 'pm list packages -3' | sed -e 's/^package://' | sort)
+do
+    if [ ! -f $pkgname.apk ]
+    then
+        path=$(adb shell pm path $pkgname | sed 's/^package://')
+        echo $path
+        adb pull -p $path $pkgname.apk
+    fi
+done
