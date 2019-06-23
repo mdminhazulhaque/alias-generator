@@ -1,0 +1,2 @@
+printeron() { systemctl start cups; systemctl start cups-browsed; }
+printeroff() { systemctl stop cups-browsed; systemctl stop cups; }

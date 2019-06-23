@@ -1,0 +1,2 @@
+alias pe='apg -a1 -m 16 -M NCL'
+alias ph='apg -a1 -m 16 -M NCLS'

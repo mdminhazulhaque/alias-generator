@@ -1,18 +1,19 @@
-#!/usr/bin/env python3
+#!/bin/bash
 
-import socket
-import os
-import sys
+if ! [ -x "$(command -v python3)" ]; then
+  echo 'Error: python3 is not installed.' >&2
+  exit 1
+fi
 
-def get_ip_address():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(("8.8.8.8", 80))
-    return s.getsockname()[0]
+IP=$(python3 -c 'import socket
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+print(s.getsockname()[0])')
 
-port = "8000"
-url = "http://" + get_ip_address() + ":" + port
+PORT=8000
+URL="http://$IP:$PORT/"
 
-print("Server started at " + url)
-#os.system("google-chrome " + url + " &")
-os.system("python3 -m http.server " + port + " > /dev/null")
-# os.system("php -S 0.0.0.0:" + port + " &> /dev/null")
+echo "Serving $(pwd) at $URL"
+xdg-open $URL &
+
+python3 -m http.server $PORT > /dev/null

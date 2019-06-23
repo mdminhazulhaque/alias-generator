@@ -3,18 +3,19 @@ set -e
 set -u
 
 if [[ $# -lt 2 ]]; then
-  >&2 echo 'what'
+  echo 'Usage:   every timeout cmd [args]' >&2
+  echo 'Example: every 30s uptime -p' >&2
   exit 1
 fi
 
-seconds="$1"
+delay="$1"
 shift
 command="$*"
 
 doit() {
   $command
   set +e
-  sleep "$seconds"
+  sleep "$delay"
   doit
 }
 

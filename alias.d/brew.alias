@@ -1,0 +1,7 @@
+alias nosleep='pmset noidle'
+alias brin='brew install'
+alias brudt='brew update'
+alias brugd='brew upgrade'
+alias brcu='brew cleanup'
+alias swl='sudo softwareupdate -l'
+alias swu='sudo softwareupdate -via'

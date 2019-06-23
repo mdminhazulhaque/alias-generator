@@ -1,0 +1,9 @@
+alias dig='dig +noall +answer'
+alias ping='ping -c 4 -i 0.5'
+alias nsl='nslookup'
+alias ns="netstat -pltn"
+alias s='ssh'
+alias t='telnet'
+alias sshv='ssh -v'
+alias sshk='killall ssh'
+alias sshc='rm -f ~/.ssh/known_hosts'

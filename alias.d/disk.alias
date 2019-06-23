@@ -1,0 +1,5 @@
+alias duh='du -hs'
+alias dub='du -b'
+alias dd='dcfldd'
+alias rsync='rsync -rltuDv'
+alias rsyncnodot='rsync -rltDuv --exclude ".*" --delete'

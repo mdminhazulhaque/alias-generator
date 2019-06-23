@@ -1,0 +1,5 @@
+alias adba="adb shell 'pm list packages -3' | sed -e 's/^package://' | sort"
+alias adbd='adb devices'
+alias adbs='adb shell'
+alias adbl='adb logcat'
+logcat() { adb logcat --pid $(adb shell ps | grep "$1" | awk '{print $2}'); }

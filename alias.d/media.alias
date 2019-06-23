@@ -1,0 +1,3 @@
+alias yd='youtube-dl --prefer-ffmpeg'
+alias fm='ffmpeg -hide_banner'
+alias fp='ffplay -hide_banner'

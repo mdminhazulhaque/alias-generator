@@ -1,0 +1,7 @@
+alias au='apt update'
+alias ai='apt install'
+alias afu='apt full-upgrade'
+alias ac='apt clean'
+alias aac='apt autoclean'
+alias aar='apt autoremove'
+alias update='apt update && apt -y full-upgrade'

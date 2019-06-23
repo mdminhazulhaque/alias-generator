@@ -1,0 +1,6 @@
+alias mk='make'
+alias mk4='make -j4'
+alias mk8='make -j8'
+alias mkc='make clean'
+alias mkv='make V=s'
+alias mkm='make menuconfig'

@@ -1,0 +1,10 @@
+alias lower="tr 'A-Z' 'a-z'"
+alias upper="tr 'a-z' 'A-Z'"
+alias nospace="tr -d ' '"
+alias title="sed 's/[^ ]\+/\L\u&/g'"
+alias quote="python -c 'import json; import sys; print json.dumps(sys.stdin.read())'"
+alias nocomment="grep -v ^#"
+alias nonewline="grep -v ^$"
+alias b64e="base64"
+alias b64d="base64 -d"
+alias pj='python -m json.tool'

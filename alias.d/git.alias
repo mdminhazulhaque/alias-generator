@@ -1,0 +1,17 @@
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit -m'
+alias gd='git diff'
+alias gck='git checkout'
+alias gcl='git clone'
+alias gcpk='git cherry-pick'
+alias gf='git fetch'
+alias gi='git init'
+alias gl='git log --pretty=oneline'
+alias gl5='git log -5'
+alias gm='git merge'
+alias gpl='git pull'
+alias gps='git push'
+alias gs='git status'
+alias gcl1="git clone -b master --single-branch --depth 1"
+alias gundo="git reset --hard HEAD"

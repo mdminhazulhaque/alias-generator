@@ -1,0 +1,2 @@
+alias pc1152="picocom -b115200 /dev/ttyUSB0"
+alias pc5760="picocom -b57600 /dev/ttyUSB0"

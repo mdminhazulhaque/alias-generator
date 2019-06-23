@@ -1,0 +1,5 @@
+alias ff='find . -type f -iname'
+alias fd='find . -type d -iname'
+alias fe='find . -type f -executable -iname'
+ffmin() { find . -type f -size +$1; }
+ffmax() { find . -type f -size -$1; }

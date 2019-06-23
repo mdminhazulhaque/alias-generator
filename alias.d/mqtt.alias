@@ -1,0 +1,2 @@
+alias pub="mosquitto_pub"
+alias sub="mosquitto_sub -v"
