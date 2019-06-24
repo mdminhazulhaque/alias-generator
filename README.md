@@ -34,6 +34,7 @@ source /path/to/dotfiles/alias.d/find.alias
 source /path/to/dotfiles/alias.d/git.alias
 source /path/to/dotfiles/alias.d/grep.alias
 source /path/to/dotfiles/alias.d/jekyll.alias
+source /path/to/dotfiles/alias.d/kubectl.alias
 source /path/to/dotfiles/alias.d/lang.alias
 source /path/to/dotfiles/alias.d/ls.alias
 source /path/to/dotfiles/alias.d/make.alias
