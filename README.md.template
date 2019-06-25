@@ -23,31 +23,7 @@ But be aware about security issues.
 You might not need all aliases at once, right? I have split up all the aliases into modules. Now you can load them based on your choice.
 
 ```
-source /path/to/adb.alias
-source /path/to/apt.alias
-source /path/to/brew.alias
-source /path/to/cd.alias
-source /path/to/color.alias
-source /path/to/core.alias
-source /path/to/cups.alias
-source /path/to/disk.alias
-source /path/to/find.alias
-source /path/to/git.alias
-source /path/to/grep.alias
-source /path/to/jekyll.alias
-source /path/to/kubectl.alias
-source /path/to/lang.alias
-source /path/to/ls.alias
-source /path/to/make.alias
-source /path/to/media.alias
-source /path/to/misc.alias
-source /path/to/mqtt.alias
-source /path/to/network.alias
-source /path/to/pb.alias
-source /path/to/picocom.alias
-source /path/to/pwgen.alias
-source /path/to/string.alias
-source /path/to/term.alias
+__LIST__
 ```
 
 ## Bash Alias Builder
