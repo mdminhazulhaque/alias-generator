@@ -1,0 +1,8 @@
+red() { echo -e "\e[31m$(cat)\e[0m"; }
+green() { echo -e "\e[32m$(cat)\e[0m"; }
+yellow() { echo -e "\e[33m$(cat)\e[0m"; }
+blue() { echo -e "\e[34m$(cat)\e[0m"; }
+magenta() { echo -e "\e[35m$(cat)\e[0m"; }
+cyan() { echo -e "\e[36m$(cat)\e[0m"; }
+black() { echo -e "\e[30m$(cat)\e[0m"; }
+white() { echo -e "\e[97m$(cat)\e[0m"; }
