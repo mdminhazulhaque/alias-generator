@@ -1,4 +1,4 @@
 alias sudo='sudo '
 alias now='date +%Y-%m-%d\ %H:%M:%S'
-namaz() { sleep $1 && kdialog --msgbox "Namaz!!!"; }
+solat() { sleep $1 && kdialog --msgbox "Solat!!!"; }
 repeat() { local n="$1"; shift; while ((n-- > 0)); do "$@"; done; }

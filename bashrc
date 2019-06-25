@@ -23,19 +23,21 @@ else
     export PS1="\[\e[1;32m\]\w\[\e[m\]\[\e[1;33m\] >\[\e[m\] "
 fi
 
-PATH="/home/minhaz/.dotfiles/bin:$PATH"
+PATH="/home/minhaz/.dotfiles/bin:/home/minhaz/.kubectx:$PATH"
 
 # source /home/minhaz/.dotfiles/alias.d/adb.alias
 source /home/minhaz/.dotfiles/alias.d/apt.alias
 # source /home/minhaz/.dotfiles/alias.d/brew.alias
 source /home/minhaz/.dotfiles/alias.d/cd.alias
 source /home/minhaz/.dotfiles/alias.d/core.alias
+source /home/minhaz/.dotfiles/alias.d/color.alias
 # source /home/minhaz/.dotfiles/alias.d/cups.alias
 source /home/minhaz/.dotfiles/alias.d/disk.alias
 source /home/minhaz/.dotfiles/alias.d/find.alias
 source /home/minhaz/.dotfiles/alias.d/git.alias
 source /home/minhaz/.dotfiles/alias.d/grep.alias
 source /home/minhaz/.dotfiles/alias.d/jekyll.alias
+source /home/minhaz/.dotfiles/alias.d/kubectl.alias
 source /home/minhaz/.dotfiles/alias.d/lang.alias
 source /home/minhaz/.dotfiles/alias.d/ls.alias
 # source /home/minhaz/.dotfiles/alias.d/make.alias
