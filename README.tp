@@ -22,10 +22,11 @@ But be aware about security issues.
 
 You might not need all aliases at once, right? I have split up all the aliases into modules. Now you can load them based on your choice.
 
-```
-__LIST__
+```__LIST__
 ```
 
 ## Bash Alias Builder
 
-Check out my another project [Bash Alias Builder](https://github.com/mdminhazulhaque/bash-alias-builder) to build your own bash alias file from lots of ready-made templates.
+Check out my another project [Bash Alias Builder](https://github.com/mdminhazulhaque/dotfiles) to build your own bash alias file from lots of ready-made templates.
+
+![Bash Alias Builder](screen.png)

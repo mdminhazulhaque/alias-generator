@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Bash Alias Builder</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+    <meta name="author" content="Md. Minhazul Haque">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="Build bash aliases from ready-made templates">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <style>
+        * {
+            font-family: Inconsolata
+        }
+        body {
+            padding-top: 70px;
+            padding-bottom: 20px;
+        }
+        @media (min-width:1024px) {
+            .card-columns {
+                column-count: 4
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Bash Alias Builder</a>
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group mr-2" role="group">
+                    <button type="button" class="btn btn-light" disabled>Select</button>
+                    <button type="button" class="btn btn-primary" onclick="do_select_all(true)">All</button>
+                    <button type="button" class="btn btn-secondary" onclick="do_select_all(false)">None</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-success" onclick="download()">Download</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <div class="container-fluid">
+            <div class="card-columns">
+                
+                
+                <div class="card">
+                    <div class="card-header">
+                        adb <span class="badge badge-primary badge-pill" id="adb_count"
+                            count="5">5</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('adb', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('adb', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="adb">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input adb" id="alias-adba-adb-shell-pm-list-packages-3-sed-e-s-package-sort" type="checkbox"
+                                checked><label class="form-check-label" for="alias-adba-adb-shell-pm-list-packages-3-sed-e-s-package-sort">alias adba="adb shell 'pm list packages -3' | sed -e 's/^package://' | sort"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input adb" id="alias-adbd-adb-devices" type="checkbox"
+                                checked><label class="form-check-label" for="alias-adbd-adb-devices">alias adbd='adb devices'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input adb" id="alias-adbs-adb-shell" type="checkbox"
+                                checked><label class="form-check-label" for="alias-adbs-adb-shell">alias adbs='adb shell'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input adb" id="alias-adbl-adb-logcat" type="checkbox"
+                                checked><label class="form-check-label" for="alias-adbl-adb-logcat">alias adbl='adb logcat'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input adb" id="logcat-adb-logcat-pid-adb-shell-ps-grep-1-awk-print-2" type="checkbox"
+                                checked><label class="form-check-label" for="logcat-adb-logcat-pid-adb-shell-ps-grep-1-awk-print-2">logcat() { adb logcat --pid $(adb shell ps | grep "$1" | awk '{print $2}'); }</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        apt <span class="badge badge-primary badge-pill" id="apt_count"
+                            count="7">7</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('apt', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('apt', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="apt">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input apt" id="alias-au-apt-update" type="checkbox"
+                                checked><label class="form-check-label" for="alias-au-apt-update">alias au='apt update'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input apt" id="alias-ai-apt-install" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ai-apt-install">alias ai='apt install'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input apt" id="alias-afu-apt-full-upgrade" type="checkbox"
+                                checked><label class="form-check-label" for="alias-afu-apt-full-upgrade">alias afu='apt full-upgrade'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input apt" id="alias-ac-apt-clean" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ac-apt-clean">alias ac='apt clean'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input apt" id="alias-aac-apt-autoclean" type="checkbox"
+                                checked><label class="form-check-label" for="alias-aac-apt-autoclean">alias aac='apt autoclean'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input apt" id="alias-aar-apt-autoremove" type="checkbox"
+                                checked><label class="form-check-label" for="alias-aar-apt-autoremove">alias aar='apt autoremove'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input apt" id="alias-update-apt-update-apt-y-full-upgrade" type="checkbox"
+                                checked><label class="form-check-label" for="alias-update-apt-update-apt-y-full-upgrade">alias update='apt update && apt -y full-upgrade'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        brew <span class="badge badge-primary badge-pill" id="brew_count"
+                            count="7">7</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('brew', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('brew', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="brew">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input brew" id="alias-nosleep-pmset-noidle" type="checkbox"
+                                checked><label class="form-check-label" for="alias-nosleep-pmset-noidle">alias nosleep='pmset noidle'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input brew" id="alias-brin-brew-install" type="checkbox"
+                                checked><label class="form-check-label" for="alias-brin-brew-install">alias brin='brew install'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input brew" id="alias-brudt-brew-update" type="checkbox"
+                                checked><label class="form-check-label" for="alias-brudt-brew-update">alias brudt='brew update'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input brew" id="alias-brugd-brew-upgrade" type="checkbox"
+                                checked><label class="form-check-label" for="alias-brugd-brew-upgrade">alias brugd='brew upgrade'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input brew" id="alias-brcu-brew-cleanup" type="checkbox"
+                                checked><label class="form-check-label" for="alias-brcu-brew-cleanup">alias brcu='brew cleanup'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input brew" id="alias-swl-sudo-softwareupdate-l" type="checkbox"
+                                checked><label class="form-check-label" for="alias-swl-sudo-softwareupdate-l">alias swl='sudo softwareupdate -l'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input brew" id="alias-swu-sudo-softwareupdate-via" type="checkbox"
+                                checked><label class="form-check-label" for="alias-swu-sudo-softwareupdate-via">alias swu='sudo softwareupdate -via'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        cd <span class="badge badge-primary badge-pill" id="cd_count"
+                            count="4">4</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('cd', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('cd', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="cd">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input cd" id="alias-cd" type="checkbox"
+                                checked><label class="form-check-label" for="alias-cd">alias ..='cd ..'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input cd" id="alias-cd" type="checkbox"
+                                checked><label class="form-check-label" for="alias-cd">alias ...='cd ../..'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input cd" id="alias-cd" type="checkbox"
+                                checked><label class="form-check-label" for="alias-cd">alias ....='cd ../../../'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input cd" id="alias-cd" type="checkbox"
+                                checked><label class="form-check-label" for="alias-cd">alias ~='cd ~'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        color <span class="badge badge-primary badge-pill" id="color_count"
+                            count="8">8</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('color', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('color', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="color">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input color" id="red-echo-e-e-31m-cat-e-0m" type="checkbox"
+                                checked><label class="form-check-label" for="red-echo-e-e-31m-cat-e-0m">red() { echo -e "\e[31m$(cat)\e[0m"; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input color" id="green-echo-e-e-32m-cat-e-0m" type="checkbox"
+                                checked><label class="form-check-label" for="green-echo-e-e-32m-cat-e-0m">green() { echo -e "\e[32m$(cat)\e[0m"; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input color" id="yellow-echo-e-e-33m-cat-e-0m" type="checkbox"
+                                checked><label class="form-check-label" for="yellow-echo-e-e-33m-cat-e-0m">yellow() { echo -e "\e[33m$(cat)\e[0m"; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input color" id="blue-echo-e-e-34m-cat-e-0m" type="checkbox"
+                                checked><label class="form-check-label" for="blue-echo-e-e-34m-cat-e-0m">blue() { echo -e "\e[34m$(cat)\e[0m"; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input color" id="magenta-echo-e-e-35m-cat-e-0m" type="checkbox"
+                                checked><label class="form-check-label" for="magenta-echo-e-e-35m-cat-e-0m">magenta() { echo -e "\e[35m$(cat)\e[0m"; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input color" id="cyan-echo-e-e-36m-cat-e-0m" type="checkbox"
+                                checked><label class="form-check-label" for="cyan-echo-e-e-36m-cat-e-0m">cyan() { echo -e "\e[36m$(cat)\e[0m"; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input color" id="black-echo-e-e-30m-cat-e-0m" type="checkbox"
+                                checked><label class="form-check-label" for="black-echo-e-e-30m-cat-e-0m">black() { echo -e "\e[30m$(cat)\e[0m"; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input color" id="white-echo-e-e-97m-cat-e-0m" type="checkbox"
+                                checked><label class="form-check-label" for="white-echo-e-e-97m-cat-e-0m">white() { echo -e "\e[97m$(cat)\e[0m"; }</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        core <span class="badge badge-primary badge-pill" id="core_count"
+                            count="8">8</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('core', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('core', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="core">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input core" id="alias-chx-chmod-x" type="checkbox"
+                                checked><label class="form-check-label" for="alias-chx-chmod-x">alias chx="chmod +x"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input core" id="alias-md-mkdir-p" type="checkbox"
+                                checked><label class="form-check-label" for="alias-md-mkdir-p">alias md='mkdir -p'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input core" id="alias-cpr-cp-r" type="checkbox"
+                                checked><label class="form-check-label" for="alias-cpr-cp-r">alias cpr="cp -r"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input core" id="alias-fl-file" type="checkbox"
+                                checked><label class="form-check-label" for="alias-fl-file">alias fl='file'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input core" id="alias-hex-xxd-p" type="checkbox"
+                                checked><label class="form-check-label" for="alias-hex-xxd-p">alias hex="xxd -p"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input core" id="alias-psa-ps-axo-pid-cpu-mem-start-time-bsdtime-command" type="checkbox"
+                                checked><label class="form-check-label" for="alias-psa-ps-axo-pid-cpu-mem-start-time-bsdtime-command">alias psa="ps -axo pid,%cpu,%mem,start,time,bsdtime,command"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input core" id="alias-psc-ps-axo-pid-command" type="checkbox"
+                                checked><label class="form-check-label" for="alias-psc-ps-axo-pid-command">alias psc="ps -axo pid,command"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input core" id="alias-realpath-readlink-f" type="checkbox"
+                                checked><label class="form-check-label" for="alias-realpath-readlink-f">alias realpath="readlink -f"</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        cups <span class="badge badge-primary badge-pill" id="cups_count"
+                            count="2">2</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('cups', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('cups', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="cups">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input cups" id="printeron-systemctl-start-cups-systemctl-start-cups-browsed" type="checkbox"
+                                checked><label class="form-check-label" for="printeron-systemctl-start-cups-systemctl-start-cups-browsed">printeron() { systemctl start cups; systemctl start cups-browsed; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input cups" id="printeroff-systemctl-stop-cups-browsed-systemctl-stop-cups" type="checkbox"
+                                checked><label class="form-check-label" for="printeroff-systemctl-stop-cups-browsed-systemctl-stop-cups">printeroff() { systemctl stop cups-browsed; systemctl stop cups; }</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        disk <span class="badge badge-primary badge-pill" id="disk_count"
+                            count="5">5</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('disk', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('disk', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="disk">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input disk" id="alias-duh-du-hs" type="checkbox"
+                                checked><label class="form-check-label" for="alias-duh-du-hs">alias duh='du -hs'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input disk" id="alias-dub-du-b" type="checkbox"
+                                checked><label class="form-check-label" for="alias-dub-du-b">alias dub='du -b'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input disk" id="alias-dd-dcfldd" type="checkbox"
+                                checked><label class="form-check-label" for="alias-dd-dcfldd">alias dd='dcfldd'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input disk" id="alias-rsync-rsync-rltudv" type="checkbox"
+                                checked><label class="form-check-label" for="alias-rsync-rsync-rltudv">alias rsync='rsync -rltuDv'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input disk" id="alias-rsyncnodot-rsync-rltduv-exclude-delete" type="checkbox"
+                                checked><label class="form-check-label" for="alias-rsyncnodot-rsync-rltduv-exclude-delete">alias rsyncnodot='rsync -rltDuv --exclude ".*" --delete'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        find <span class="badge badge-primary badge-pill" id="find_count"
+                            count="5">5</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('find', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('find', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="find">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input find" id="alias-ff-find-type-f-iname" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ff-find-type-f-iname">alias ff='find . -type f -iname'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input find" id="alias-fd-find-type-d-iname" type="checkbox"
+                                checked><label class="form-check-label" for="alias-fd-find-type-d-iname">alias fd='find . -type d -iname'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input find" id="alias-fe-find-type-f-executable-iname" type="checkbox"
+                                checked><label class="form-check-label" for="alias-fe-find-type-f-executable-iname">alias fe='find . -type f -executable -iname'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input find" id="ffmin-find-type-f-size-1" type="checkbox"
+                                checked><label class="form-check-label" for="ffmin-find-type-f-size-1">ffmin() { find . -type f -size +$1; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input find" id="ffmax-find-type-f-size-1" type="checkbox"
+                                checked><label class="form-check-label" for="ffmax-find-type-f-size-1">ffmax() { find . -type f -size -$1; }</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        git <span class="badge badge-primary badge-pill" id="git_count"
+                            count="17">17</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('git', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('git', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="git">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-ga-git-add" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ga-git-add">alias ga='git add'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gb-git-branch" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gb-git-branch">alias gb='git branch'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gc-git-commit-m" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gc-git-commit-m">alias gc='git commit -m'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gd-git-diff" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gd-git-diff">alias gd='git diff'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gck-git-checkout" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gck-git-checkout">alias gck='git checkout'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gcl-git-clone" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gcl-git-clone">alias gcl='git clone'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gcpk-git-cherry-pick" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gcpk-git-cherry-pick">alias gcpk='git cherry-pick'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gf-git-fetch" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gf-git-fetch">alias gf='git fetch'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gi-git-init" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gi-git-init">alias gi='git init'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gl-git-log-pretty-oneline" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gl-git-log-pretty-oneline">alias gl='git log --pretty=oneline'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gl5-git-log-5" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gl5-git-log-5">alias gl5='git log -5'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gm-git-merge" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gm-git-merge">alias gm='git merge'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gpl-git-pull" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gpl-git-pull">alias gpl='git pull'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gps-git-push" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gps-git-push">alias gps='git push'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gs-git-status" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gs-git-status">alias gs='git status'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gcl1-git-clone-b-master-single-branch-depth-1" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gcl1-git-clone-b-master-single-branch-depth-1">alias gcl1="git clone -b master --single-branch --depth 1"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input git" id="alias-gundo-git-reset-hard-head" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gundo-git-reset-hard-head">alias gundo="git reset --hard HEAD"</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        grep <span class="badge badge-primary badge-pill" id="grep_count"
+                            count="6">6</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('grep', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('grep', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="grep">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-grep-grep-color-auto" type="checkbox"
+                                checked><label class="form-check-label" for="alias-grep-grep-color-auto">alias grep='grep --color=auto'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-fgrep-fgrep-color-auto" type="checkbox"
+                                checked><label class="form-check-label" for="alias-fgrep-fgrep-color-auto">alias fgrep='fgrep --color=auto'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-egrep-egrep-color-auto" type="checkbox"
+                                checked><label class="form-check-label" for="alias-egrep-egrep-color-auto">alias egrep='egrep --color=auto'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-hgrep-history-grep" type="checkbox"
+                                checked><label class="form-check-label" for="alias-hgrep-history-grep">alias hgrep='history | grep'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-rgrep-grep-r" type="checkbox"
+                                checked><label class="form-check-label" for="alias-rgrep-grep-r">alias rgrep='grep -r'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-fgrep-grep-ilr" type="checkbox"
+                                checked><label class="form-check-label" for="alias-fgrep-grep-ilr">alias fgrep='grep -ilr'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        jekyll <span class="badge badge-primary badge-pill" id="jekyll_count"
+                            count="3">3</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('jekyll', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('jekyll', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="jekyll">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input jekyll" id="alias-js-jekyll-serve-watch-incremental-trace" type="checkbox"
+                                checked><label class="form-check-label" for="alias-js-jekyll-serve-watch-incremental-trace">alias js='jekyll serve --watch --incremental --trace'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input jekyll" id="alias-jc-jekyll-clean" type="checkbox"
+                                checked><label class="form-check-label" for="alias-jc-jekyll-clean">alias jc='jekyll clean'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input jekyll" id="alias-jb-jekyll-build" type="checkbox"
+                                checked><label class="form-check-label" for="alias-jb-jekyll-build">alias jb='jekyll build'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        kubectl <span class="badge badge-primary badge-pill" id="kubectl_count"
+                            count="15">15</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('kubectl', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('kubectl', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="kubectl">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-k-kubectl" type="checkbox"
+                                checked><label class="form-check-label" for="alias-k-kubectl">alias k="kubectl"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kctx-kubectx" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kctx-kubectx">alias kctx="kubectx"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kdd-kubectl-delete-deployments" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kdd-kubectl-delete-deployments">alias kdd="kubectl delete deployments"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kdp-kubectl-delete-pods" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kdp-kubectl-delete-pods">alias kdp="kubectl delete pods"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kds-kubectl-delete-services" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kds-kubectl-delete-services">alias kds="kubectl delete services"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kex-kubectl-exec-it" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kex-kubectl-exec-it">alias kex="kubectl exec -it"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kgd-kubectl-get-deployments" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgd-kubectl-get-deployments">alias kgd="kubectl get deployments"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kgda-kubectl-get-deployments-sort-by-metadata-creationtimestamp" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgda-kubectl-get-deployments-sort-by-metadata-creationtimestamp">alias kgda="kubectl get deployments --sort-by=.metadata.creationTimestamp"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kgp-kubectl-get-pods" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgp-kubectl-get-pods">alias kgp="kubectl get pods"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kgpa-kubectl-get-pods-sort-by-metadata-creationtimestamp" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgpa-kubectl-get-pods-sort-by-metadata-creationtimestamp">alias kgpa="kubectl get pods --sort-by=.metadata.creationTimestamp"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kgs-kubectl-get-services" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgs-kubectl-get-services">alias kgs="kubectl get services"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kgsa-kubectl-get-services-sort-by-metadata-creationtimestamp" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgsa-kubectl-get-services-sort-by-metadata-creationtimestamp">alias kgsa="kubectl get services --sort-by=.metadata.creationTimestamp"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-klg-kubectl-logs-f" type="checkbox"
+                                checked><label class="form-check-label" for="alias-klg-kubectl-logs-f">alias klg="kubectl logs -f"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-krhd-kubectl-rollout-history-deployment" type="checkbox"
+                                checked><label class="form-check-label" for="alias-krhd-kubectl-rollout-history-deployment">alias krhd="kubectl rollout history deployment"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-krhp-kubectl-rollout-history-pods" type="checkbox"
+                                checked><label class="form-check-label" for="alias-krhp-kubectl-rollout-history-pods">alias krhp="kubectl rollout history pods"</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        lang <span class="badge badge-primary badge-pill" id="lang_count"
+                            count="6">6</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('lang', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('lang', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="lang">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input lang" id="alias-py-python" type="checkbox"
+                                checked><label class="form-check-label" for="alias-py-python">alias py='python'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input lang" id="alias-py2-python2" type="checkbox"
+                                checked><label class="form-check-label" for="alias-py2-python2">alias py2='python2'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input lang" id="alias-py3-python3" type="checkbox"
+                                checked><label class="form-check-label" for="alias-py3-python3">alias py3='python3'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input lang" id="alias-rb-ruby" type="checkbox"
+                                checked><label class="form-check-label" for="alias-rb-ruby">alias rb='ruby'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input lang" id="alias-pl-perl" type="checkbox"
+                                checked><label class="form-check-label" for="alias-pl-perl">alias pl='perl'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input lang" id="alias-rvm-source-usr-share-rvm-scripts-rvm" type="checkbox"
+                                checked><label class="form-check-label" for="alias-rvm-source-usr-share-rvm-scripts-rvm">alias rvm='source /usr/share/rvm/scripts/rvm'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        ls <span class="badge badge-primary badge-pill" id="ls_count"
+                            count="6">6</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('ls', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('ls', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="ls">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input ls" id="alias-ls-ls-color-auto-pg" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ls-ls-color-auto-pg">alias ls="ls --color=auto -pG"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input ls" id="alias-l-ls-1" type="checkbox"
+                                checked><label class="form-check-label" for="alias-l-ls-1">alias l='ls -1'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input ls" id="alias-ll-ls-alf" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ll-ls-alf">alias ll='ls -alF'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input ls" id="alias-la-ls-1a" type="checkbox"
+                                checked><label class="form-check-label" for="alias-la-ls-1a">alias la='ls -1A'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input ls" id="alias-lh-ls-lh" type="checkbox"
+                                checked><label class="form-check-label" for="alias-lh-ls-lh">alias lh='ls -lh'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input ls" id="alias-lr-ls-1t" type="checkbox"
+                                checked><label class="form-check-label" for="alias-lr-ls-1t">alias lr="ls -1t"</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        make <span class="badge badge-primary badge-pill" id="make_count"
+                            count="6">6</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('make', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('make', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="make">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input make" id="alias-mk-make" type="checkbox"
+                                checked><label class="form-check-label" for="alias-mk-make">alias mk='make'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input make" id="alias-mk4-make-j4" type="checkbox"
+                                checked><label class="form-check-label" for="alias-mk4-make-j4">alias mk4='make -j4'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input make" id="alias-mk8-make-j8" type="checkbox"
+                                checked><label class="form-check-label" for="alias-mk8-make-j8">alias mk8='make -j8'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input make" id="alias-mkc-make-clean" type="checkbox"
+                                checked><label class="form-check-label" for="alias-mkc-make-clean">alias mkc='make clean'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input make" id="alias-mkv-make-v-s" type="checkbox"
+                                checked><label class="form-check-label" for="alias-mkv-make-v-s">alias mkv='make V=s'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input make" id="alias-mkm-make-menuconfig" type="checkbox"
+                                checked><label class="form-check-label" for="alias-mkm-make-menuconfig">alias mkm='make menuconfig'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        media <span class="badge badge-primary badge-pill" id="media_count"
+                            count="3">3</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('media', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('media', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="media">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input media" id="alias-yd-youtube-dl-prefer-ffmpeg" type="checkbox"
+                                checked><label class="form-check-label" for="alias-yd-youtube-dl-prefer-ffmpeg">alias yd='youtube-dl --prefer-ffmpeg'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input media" id="alias-fm-ffmpeg-hide-banner" type="checkbox"
+                                checked><label class="form-check-label" for="alias-fm-ffmpeg-hide-banner">alias fm='ffmpeg -hide_banner'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input media" id="alias-fp-ffplay-hide-banner" type="checkbox"
+                                checked><label class="form-check-label" for="alias-fp-ffplay-hide-banner">alias fp='ffplay -hide_banner'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        misc <span class="badge badge-primary badge-pill" id="misc_count"
+                            count="4">4</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('misc', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('misc', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="misc">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input misc" id="alias-sudo-sudo" type="checkbox"
+                                checked><label class="form-check-label" for="alias-sudo-sudo">alias sudo='sudo '</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input misc" id="alias-now-date-y-m-d-h-m-s" type="checkbox"
+                                checked><label class="form-check-label" for="alias-now-date-y-m-d-h-m-s">alias now='date +%Y-%m-%d\ %H:%M:%S'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input misc" id="solat-sleep-1-kdialog-msgbox-solat" type="checkbox"
+                                checked><label class="form-check-label" for="solat-sleep-1-kdialog-msgbox-solat">solat() { sleep $1 && kdialog --msgbox "Solat!!!"; }</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input misc" id="repeat-local-n-1-shift-while-n-0-do-done" type="checkbox"
+                                checked><label class="form-check-label" for="repeat-local-n-1-shift-while-n-0-do-done">repeat() { local n="$1"; shift; while ((n-- > 0)); do "$@"; done; }</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        mqtt <span class="badge badge-primary badge-pill" id="mqtt_count"
+                            count="2">2</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('mqtt', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('mqtt', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="mqtt">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input mqtt" id="alias-pub-mosquitto-pub" type="checkbox"
+                                checked><label class="form-check-label" for="alias-pub-mosquitto-pub">alias pub="mosquitto_pub"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input mqtt" id="alias-sub-mosquitto-sub-v" type="checkbox"
+                                checked><label class="form-check-label" for="alias-sub-mosquitto-sub-v">alias sub="mosquitto_sub -v"</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        network <span class="badge badge-primary badge-pill" id="network_count"
+                            count="10">10</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('network', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('network', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="network">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-curl-curl-s" type="checkbox"
+                                checked><label class="form-check-label" for="alias-curl-curl-s">alias curl='curl -s'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-dig-dig-noall-answer" type="checkbox"
+                                checked><label class="form-check-label" for="alias-dig-dig-noall-answer">alias dig='dig +noall +answer'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-ping-ping-c-4-i-0-5" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ping-ping-c-4-i-0-5">alias ping='ping -c 4 -i 0.5'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-nsl-nslookup" type="checkbox"
+                                checked><label class="form-check-label" for="alias-nsl-nslookup">alias nsl='nslookup'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-ns-netstat-pltn" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ns-netstat-pltn">alias ns="netstat -pltn"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-s-ssh" type="checkbox"
+                                checked><label class="form-check-label" for="alias-s-ssh">alias s='ssh'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-t-telnet" type="checkbox"
+                                checked><label class="form-check-label" for="alias-t-telnet">alias t='telnet'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-sshv-ssh-v" type="checkbox"
+                                checked><label class="form-check-label" for="alias-sshv-ssh-v">alias sshv='ssh -v'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-sshk-killall-ssh" type="checkbox"
+                                checked><label class="form-check-label" for="alias-sshk-killall-ssh">alias sshk='killall ssh'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input network" id="alias-sshc-rm-f-ssh-known-hosts" type="checkbox"
+                                checked><label class="form-check-label" for="alias-sshc-rm-f-ssh-known-hosts">alias sshc='rm -f ~/.ssh/known_hosts'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        pb <span class="badge badge-primary badge-pill" id="pb_count"
+                            count="2">2</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('pb', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('pb', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="pb">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input pb" id="alias-pbcopy-xclip-selection-clipboard" type="checkbox"
+                                checked><label class="form-check-label" for="alias-pbcopy-xclip-selection-clipboard">alias pbcopy='xclip -selection clipboard'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input pb" id="alias-pbpaste-xclip-selection-clipboard-o" type="checkbox"
+                                checked><label class="form-check-label" for="alias-pbpaste-xclip-selection-clipboard-o">alias pbpaste='xclip -selection clipboard -o'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        picocom <span class="badge badge-primary badge-pill" id="picocom_count"
+                            count="2">2</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('picocom', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('picocom', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="picocom">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input picocom" id="alias-pc1152-picocom-b115200-dev-ttyusb0" type="checkbox"
+                                checked><label class="form-check-label" for="alias-pc1152-picocom-b115200-dev-ttyusb0">alias pc1152="picocom -b115200 /dev/ttyUSB0"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input picocom" id="alias-pc5760-picocom-b57600-dev-ttyusb0" type="checkbox"
+                                checked><label class="form-check-label" for="alias-pc5760-picocom-b57600-dev-ttyusb0">alias pc5760="picocom -b57600 /dev/ttyUSB0"</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        pwgen <span class="badge badge-primary badge-pill" id="pwgen_count"
+                            count="2">2</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('pwgen', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('pwgen', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="pwgen">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input pwgen" id="alias-pe-apg-a1-m-16-m-ncl" type="checkbox"
+                                checked><label class="form-check-label" for="alias-pe-apg-a1-m-16-m-ncl">alias pe='apg -a1 -m 16 -M NCL'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input pwgen" id="alias-ph-apg-a1-m-16-m-ncls" type="checkbox"
+                                checked><label class="form-check-label" for="alias-ph-apg-a1-m-16-m-ncls">alias ph='apg -a1 -m 16 -M NCLS'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        string <span class="badge badge-primary badge-pill" id="string_count"
+                            count="10">10</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('string', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('string', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="string">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-lower-tr-a-z-a-z" type="checkbox"
+                                checked><label class="form-check-label" for="alias-lower-tr-a-z-a-z">alias lower="tr 'A-Z' 'a-z'"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-upper-tr-a-z-a-z" type="checkbox"
+                                checked><label class="form-check-label" for="alias-upper-tr-a-z-a-z">alias upper="tr 'a-z' 'A-Z'"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-nospace-tr-d" type="checkbox"
+                                checked><label class="form-check-label" for="alias-nospace-tr-d">alias nospace="tr -d ' '"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-title-sed-s-l-u-g" type="checkbox"
+                                checked><label class="form-check-label" for="alias-title-sed-s-l-u-g">alias title="sed 's/[^ ]\+/\L\u&/g'"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-quote-python-c-import-json-import-sys-print-json-dumps-sys-stdin-read" type="checkbox"
+                                checked><label class="form-check-label" for="alias-quote-python-c-import-json-import-sys-print-json-dumps-sys-stdin-read">alias quote="python -c 'import json; import sys; print json.dumps(sys.stdin.read())'"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-nocomment-grep-v" type="checkbox"
+                                checked><label class="form-check-label" for="alias-nocomment-grep-v">alias nocomment="grep -v ^#"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-nonewline-grep-v" type="checkbox"
+                                checked><label class="form-check-label" for="alias-nonewline-grep-v">alias nonewline="grep -v ^$"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-b64e-base64" type="checkbox"
+                                checked><label class="form-check-label" for="alias-b64e-base64">alias b64e="base64"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-b64d-base64-d" type="checkbox"
+                                checked><label class="form-check-label" for="alias-b64d-base64-d">alias b64d="base64 -d"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input string" id="alias-pj-python-m-json-tool" type="checkbox"
+                                checked><label class="form-check-label" for="alias-pj-python-m-json-tool">alias pj='python -m json.tool'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        term <span class="badge badge-primary badge-pill" id="term_count"
+                            count="2">2</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('term', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('term', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="term">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input term" id="alias-c-clear" type="checkbox"
+                                checked><label class="form-check-label" for="alias-c-clear">alias c='clear'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input term" id="alias-q-exit" type="checkbox"
+                                checked><label class="form-check-label" for="alias-q-exit">alias q='exit'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <script>
+        function download() {
+            var aliases = [];
+            $("input").each(function () {
+                if ($(this).is(':checked')) {
+                    var input_id = $(this).attr("id");
+                    var alias = $("label[for=" + input_id + "]").text();
+                    aliases.push(alias);
+                }
+            });
+            var content = aliases.join("\n");
+            var filename = "aliases.sh";
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+        function do_select_all(state) {
+            $("input").each(function () {
+                this.checked = state;
+            });
+            $("span.badge").each(function () {
+                if (state) {
+                    count = $(this).attr("count");
+                    $(this).text(count);
+                } else {
+                    $(this).text("0");
+                }
+            });
+        }
+        function do_select(cardname, state) {
+            var count = 0;
+            $("input." + cardname).each(function () {
+                this.checked = state;
+                count += 1;
+            });
+            if (state == false) {
+                count = 0;
+            }
+            var objid = "#" + cardname + "_count";
+            $(objid).text(count);
+        }
+        function do_count(cardname) {
+            var count = 0;
+            $("input." + cardname).each(function () {
+                if (this.checked) {
+                    count += 1;
+                }
+            });
+            return count;
+        }
+        $(document).ready(function () {
+            $("input").each(function () {
+                var cardname = $(this).prop("class").split(" ")[1];
+                $(this).change(function () {
+                    var objid = "#" + cardname + "_count";
+                    var count = do_count(cardname);
+                    $(objid).text(count);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

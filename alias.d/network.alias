@@ -1,3 +1,4 @@
+alias curl='curl -s'
 alias dig='dig +noall +answer'
 alias ping='ping -c 4 -i 0.5'
 alias nsl='nslookup'
