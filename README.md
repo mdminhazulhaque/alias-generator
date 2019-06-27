@@ -52,6 +52,6 @@ source /path/to/alias.d/apt.alias
 
 ## Bash Alias Builder
 
-Check out my another project [Bash Alias Builder](https://github.com/mdminhazulhaque/dotfiles) to build your own bash alias file from lots of ready-made templates.
+Check out my another project [Bash Alias Builder](https://mdminhazulhaque.github.io/dotfiles/) to build your own bash alias file from lots of ready-made templates.
 
 ![Bash Alias Builder](screen.png)
