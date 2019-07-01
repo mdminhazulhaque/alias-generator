@@ -25,8 +25,8 @@ You might not need all aliases at once, right? I have split up all the aliases i
 ```__LIST__
 ```
 
-## Bash Alias Builder
+## Dotfiles Generator
 
-Check out my another project [Bash Alias Builder](https://github.com/mdminhazulhaque/dotfiles) to build your own bash alias file from lots of ready-made templates.
+Visit [Dotfiles Generator](https://mdminhazulhaque.github.io/dotfiles/) to build your own bash alias file from lots of ready-made templates.
 
-![Bash Alias Builder](screen.png)
+![Dotfiles](screen.png)

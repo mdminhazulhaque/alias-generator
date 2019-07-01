@@ -162,7 +162,8 @@
         "alias kgsa=\"kubectl get services --sort-by=.metadata.creationTimestamp\"",
         "alias klg=\"kubectl logs -f\"",
         "alias krhd=\"kubectl rollout history deployment\"",
-        "alias krhp=\"kubectl rollout history pods\""
+        "alias krhp=\"kubectl rollout history pods\"",
+        "alias klink=\"awk '{print \\\"http://\\\"\\$4}'\""
     ],
     "find": [
         "alias ff='find . -type f -iname'",

@@ -50,8 +50,8 @@ source /path/to/alias.d/term.alias
 source /path/to/alias.d/apt.alias
 ```
 
-## Bash Alias Builder
+## Dotfiles Generator
 
-Check out my another project [Bash Alias Builder](https://mdminhazulhaque.github.io/dotfiles/) to build your own bash alias file from lots of ready-made templates.
+Visit [Dotfiles Generator](https://mdminhazulhaque.github.io/dotfiles/) to build your own bash alias file from lots of ready-made templates.
 
-![Bash Alias Builder](screen.png)
+![Dotfiles](screen.png)

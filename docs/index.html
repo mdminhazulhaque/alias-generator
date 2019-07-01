@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-    <title>Bash Alias Builder</title>
+    <title>Dotfiles Generator</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -12,7 +12,7 @@
     <meta name="author" content="Md. Minhazul Haque">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="description" content="Build bash aliases from ready-made templates">
+    <meta name="description" content="Ready-to-go bash aliases">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         type="text/css">
@@ -36,7 +36,7 @@
 <body class="bg-light">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">Bash Alias Builder</a>
+            <a class="navbar-brand" href="#">Dotfiles Generator</a>
             <div class="btn-toolbar" role="toolbar">
                 <div class="btn-group mr-2" role="group">
                     <button type="button" class="btn btn-light" disabled>Select</button>
@@ -646,7 +646,7 @@
                 <div class="card">
                     <div class="card-header">
                         kubectl <span class="badge badge-primary badge-pill" id="kubectl_count"
-                            count="15">15</span>
+                            count="16">16</span>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-primary btn-sm"
                                 onclick="do_select('kubectl', true)">All</button>
@@ -730,6 +730,11 @@
                         <div class="form-check">
                             <input class="form-check-input kubectl" id="alias-krhp-kubectl-rollout-history-pods" type="checkbox"
                                 checked><label class="form-check-label" for="alias-krhp-kubectl-rollout-history-pods">alias krhp="kubectl rollout history pods"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-klink-awk-print-http-4" type="checkbox"
+                                checked><label class="form-check-label" for="alias-klink-awk-print-http-4">alias klink="awk '{print \"http://\"\$4}'"</label>
                         </div>
                         
                     </div>
