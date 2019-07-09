@@ -567,7 +567,7 @@
                 <div class="card">
                     <div class="card-header">
                         grep <span class="badge badge-primary badge-pill" id="grep_count"
-                            count="6">6</span>
+                            count="8">8</span>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-primary btn-sm"
                                 onclick="do_select('grep', true)">All</button>
@@ -577,6 +577,26 @@
                         </div>
                     </div>
                     <div class="card-body" id="grep">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-g-grep-color-auto" type="checkbox"
+                                checked><label class="form-check-label" for="alias-g-grep-color-auto">alias g='grep --color=auto'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-gr-grep-color-auto-r" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gr-grep-color-auto-r">alias gr='grep --color=auto -r'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-gri-grep-color-auto-ri" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gri-grep-color-auto-ri">alias gri='grep --color=auto -ri'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input grep" id="alias-gril-grep-color-auto-ril" type="checkbox"
+                                checked><label class="form-check-label" for="alias-gril-grep-color-auto-ril">alias gril='grep --color=auto -ril'</label>
+                        </div>
                         
                         <div class="form-check">
                             <input class="form-check-input grep" id="alias-grep-grep-color-auto" type="checkbox"
@@ -596,16 +616,6 @@
                         <div class="form-check">
                             <input class="form-check-input grep" id="alias-hgrep-history-grep" type="checkbox"
                                 checked><label class="form-check-label" for="alias-hgrep-history-grep">alias hgrep='history | grep'</label>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input class="form-check-input grep" id="alias-rgrep-grep-r" type="checkbox"
-                                checked><label class="form-check-label" for="alias-rgrep-grep-r">alias rgrep='grep -r'</label>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input class="form-check-input grep" id="alias-fgrep-grep-ilr" type="checkbox"
-                                checked><label class="form-check-label" for="alias-fgrep-grep-ilr">alias fgrep='grep -ilr'</label>
                         </div>
                         
                     </div>
@@ -646,7 +656,7 @@
                 <div class="card">
                     <div class="card-header">
                         kubectl <span class="badge badge-primary badge-pill" id="kubectl_count"
-                            count="16">16</span>
+                            count="19">19</span>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-primary btn-sm"
                                 onclick="do_select('kubectl', true)">All</button>
@@ -698,6 +708,11 @@
                         </div>
                         
                         <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kgdg-kubectl-get-deployments-grep" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgdg-kubectl-get-deployments-grep">alias kgdg="kubectl get deployments | grep"</label>
+                        </div>
+                        
+                        <div class="form-check">
                             <input class="form-check-input kubectl" id="alias-kgp-kubectl-get-pods" type="checkbox"
                                 checked><label class="form-check-label" for="alias-kgp-kubectl-get-pods">alias kgp="kubectl get pods"</label>
                         </div>
@@ -705,6 +720,11 @@
                         <div class="form-check">
                             <input class="form-check-input kubectl" id="alias-kgpa-kubectl-get-pods-sort-by-metadata-creationtimestamp" type="checkbox"
                                 checked><label class="form-check-label" for="alias-kgpa-kubectl-get-pods-sort-by-metadata-creationtimestamp">alias kgpa="kubectl get pods --sort-by=.metadata.creationTimestamp"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-kgpg-kubectl-get-pods-grep" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgpg-kubectl-get-pods-grep">alias kgpg="kubectl get pods | grep"</label>
                         </div>
                         
                         <div class="form-check">
@@ -718,8 +738,18 @@
                         </div>
                         
                         <div class="form-check">
-                            <input class="form-check-input kubectl" id="alias-klg-kubectl-logs-f" type="checkbox"
-                                checked><label class="form-check-label" for="alias-klg-kubectl-logs-f">alias klg="kubectl logs -f"</label>
+                            <input class="form-check-input kubectl" id="alias-kgsg-kubectl-get-services-grep" type="checkbox"
+                                checked><label class="form-check-label" for="alias-kgsg-kubectl-get-services-grep">alias kgsg="kubectl get services | grep"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-klf-kubectl-logs-f" type="checkbox"
+                                checked><label class="form-check-label" for="alias-klf-kubectl-logs-f">alias klf="kubectl logs -f"</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input kubectl" id="alias-klink-awk-print-1-http-4" type="checkbox"
+                                checked><label class="form-check-label" for="alias-klink-awk-print-1-http-4">alias klink="awk '{print \$1\" http://\"\$4}'"</label>
                         </div>
                         
                         <div class="form-check">
@@ -730,11 +760,6 @@
                         <div class="form-check">
                             <input class="form-check-input kubectl" id="alias-krhp-kubectl-rollout-history-pods" type="checkbox"
                                 checked><label class="form-check-label" for="alias-krhp-kubectl-rollout-history-pods">alias krhp="kubectl rollout history pods"</label>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input class="form-check-input kubectl" id="alias-klink-awk-print-http-4" type="checkbox"
-                                checked><label class="form-check-label" for="alias-klink-awk-print-http-4">alias klink="awk '{print \"http://\"\$4}'"</label>
                         </div>
                         
                     </div>

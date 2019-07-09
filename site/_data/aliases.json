@@ -37,12 +37,14 @@
         "alias swu='sudo softwareupdate -via'"
     ],
     "grep": [
+        "alias g='grep --color=auto'",
+        "alias gr='grep --color=auto -r'",
+        "alias gri='grep --color=auto -ri'",
+        "alias gril='grep --color=auto -ril'",
         "alias grep='grep --color=auto'",
         "alias fgrep='fgrep --color=auto'",
         "alias egrep='egrep --color=auto'",
-        "alias hgrep='history | grep'",
-        "alias rgrep='grep -r'",
-        "alias fgrep='grep -ilr'"
+        "alias hgrep='history | grep'"
     ],
     "color": [
         "red() { echo -e \"\\e[31m$(cat)\\e[0m\"; }",
@@ -156,14 +158,17 @@
         "alias kex=\"kubectl exec -it\"",
         "alias kgd=\"kubectl get deployments\"",
         "alias kgda=\"kubectl get deployments --sort-by=.metadata.creationTimestamp\"",
+        "alias kgdg=\"kubectl get deployments | grep\"",
         "alias kgp=\"kubectl get pods\"",
         "alias kgpa=\"kubectl get pods --sort-by=.metadata.creationTimestamp\"",
+        "alias kgpg=\"kubectl get pods | grep\"",
         "alias kgs=\"kubectl get services\"",
         "alias kgsa=\"kubectl get services --sort-by=.metadata.creationTimestamp\"",
-        "alias klg=\"kubectl logs -f\"",
+        "alias kgsg=\"kubectl get services | grep\"",
+        "alias klf=\"kubectl logs -f\"",
+        "alias klink=\"awk '{print \\$1\\\" http://\\\"\\$4}'\"",
         "alias krhd=\"kubectl rollout history deployment\"",
-        "alias krhp=\"kubectl rollout history pods\"",
-        "alias klink=\"awk '{print \\\"http://\\\"\\$4}'\""
+        "alias krhp=\"kubectl rollout history pods\""
     ],
     "find": [
         "alias ff='find . -type f -iname'",
