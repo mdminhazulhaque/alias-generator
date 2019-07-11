@@ -1,8 +1,4 @@
 {
-    "pb": [
-        "alias pbcopy='xclip -selection clipboard'",
-        "alias pbpaste='xclip -selection clipboard -o'"
-    ],
     "ls": [
         "alias ls=\"ls --color=auto -pG\"",
         "alias l='ls -1'",
@@ -11,82 +7,18 @@
         "alias lh='ls -lh'",
         "alias lr=\"ls -1t\""
     ],
-    "string": [
-        "alias lower=\"tr 'A-Z' 'a-z'\"",
-        "alias upper=\"tr 'a-z' 'A-Z'\"",
-        "alias nospace=\"tr -d ' '\"",
-        "alias title=\"sed 's/[^ ]\\+/\\L\\u&/g'\"",
-        "alias quote=\"python -c 'import json; import sys; print json.dumps(sys.stdin.read())'\"",
-        "alias nocomment=\"grep -v ^#\"",
-        "alias nonewline=\"grep -v ^$\"",
-        "alias b64e=\"base64\"",
-        "alias b64d=\"base64 -d\"",
-        "alias pj='python -m json.tool'"
-    ],
-    "mqtt": [
-        "alias pub=\"mosquitto_pub\"",
-        "alias sub=\"mosquitto_sub -v\""
-    ],
     "brew": [
-        "alias nosleep='pmset noidle'",
         "alias brin='brew install'",
         "alias brudt='brew update'",
         "alias brugd='brew upgrade'",
-        "alias brcu='brew cleanup'",
-        "alias swl='sudo softwareupdate -l'",
-        "alias swu='sudo softwareupdate -via'"
+        "alias brcu='brew cleanup'"
     ],
-    "grep": [
-        "alias g='grep --color=auto'",
-        "alias gr='grep --color=auto -r'",
-        "alias gri='grep --color=auto -ri'",
-        "alias gril='grep --color=auto -ril'",
-        "alias grep='grep --color=auto'",
-        "alias fgrep='fgrep --color=auto'",
-        "alias egrep='egrep --color=auto'",
-        "alias hgrep='history | grep'"
-    ],
-    "color": [
-        "red() { echo -e \"\\e[31m$(cat)\\e[0m\"; }",
-        "green() { echo -e \"\\e[32m$(cat)\\e[0m\"; }",
-        "yellow() { echo -e \"\\e[33m$(cat)\\e[0m\"; }",
-        "blue() { echo -e \"\\e[34m$(cat)\\e[0m\"; }",
-        "magenta() { echo -e \"\\e[35m$(cat)\\e[0m\"; }",
-        "cyan() { echo -e \"\\e[36m$(cat)\\e[0m\"; }",
-        "black() { echo -e \"\\e[30m$(cat)\\e[0m\"; }",
-        "white() { echo -e \"\\e[97m$(cat)\\e[0m\"; }"
-    ],
-    "cd": [
-        "alias ..='cd ..'",
-        "alias ...='cd ../..'",
-        "alias ....='cd ../../../'",
-        "alias ~='cd ~'"
-    ],
-    "pwgen": [
-        "alias pe='apg -a1 -m 16 -M NCL'",
-        "alias ph='apg -a1 -m 16 -M NCLS'"
-    ],
-    "network": [
-        "alias curl='curl -s'",
-        "alias dig='dig +noall +answer'",
-        "alias ping='ping -c 4 -i 0.5'",
-        "alias nsl='nslookup'",
-        "alias ns=\"netstat -pltn\"",
-        "alias s='ssh'",
-        "alias t='telnet'",
-        "alias sshv='ssh -v'",
-        "alias sshk='killall ssh'",
-        "alias sshc='rm -f ~/.ssh/known_hosts'"
-    ],
-    "misc": [
-        "alias sudo='sudo '",
-        "alias now='date +%Y-%m-%d\\ %H:%M:%S'",
-        "solat() { sleep $1 && kdialog --msgbox \"Solat!!!\"; }",
-        "repeat() { local n=\"$1\"; shift; while ((n-- > 0)); do \"$@\"; done; }"
-    ],
-    "picocom": [
-        "alias pc1152=\"picocom -b115200 /dev/ttyUSB0\"",
-        "alias pc5760=\"picocom -b57600 /dev/ttyUSB0\""
+    "find": [
+        "alias ff='find . -type f -iname'",
+        "alias fd='find . -type d -iname'",
+        "alias fe='find . -type f -executable -iname'",
+        "ffmin() { find . -type f -size +$1; }",
+        "ffmax() { find . -type f -size -$1; }"
     ],
     "adb": [
         "alias adba=\"adb shell 'pm list packages -3' | sed -e 's/^package://' | sort\"",
@@ -100,15 +32,77 @@
         "alias jc='jekyll clean'",
         "alias jb='jekyll build'"
     ],
-    "core": [
-        "alias chx=\"chmod +x\"",
-        "alias md='mkdir -p'",
-        "alias cpr=\"cp -r\"",
-        "alias fl='file'",
-        "alias hex=\"xxd -p\"",
-        "alias psa=\"ps -axo pid,%cpu,%mem,start,time,bsdtime,command\"",
-        "alias psc=\"ps -axo pid,command\"",
-        "alias realpath=\"readlink -f\""
+    "pwgen": [
+        "alias pe='apg -a1 -m 16 -M NCL'",
+        "alias ph='apg -a1 -m 16 -M NCLS'"
+    ],
+    "disk": [
+        "alias duh='du -hs'",
+        "alias dub='du -b'",
+        "alias dd='dcfldd'",
+        "alias rsync='rsync -rltuDv'",
+        "alias rsyncnodot='rsync -rltDuv --exclude \".*\" --delete'"
+    ],
+    "network": [
+        "alias curl='curl -s'",
+        "alias dig='dig +noall +answer'",
+        "alias ping='ping -c 4 -i 0.5'",
+        "alias nsl='nslookup'",
+        "alias ns=\"netstat -pltn\"",
+        "alias s='ssh'",
+        "alias t='telnet'",
+        "alias sshv='ssh -v'",
+        "alias sshk='killall ssh'",
+        "alias sshc='rm -f ~/.ssh/known_hosts'"
+    ],
+    "osx": [
+        "alias nosleep='pmset noidle'",
+        "alias swl='sudo softwareupdate -l'",
+        "alias swu='sudo softwareupdate -via'"
+    ],
+    "media": [
+        "alias yd='youtube-dl --prefer-ffmpeg'",
+        "alias fm='ffmpeg -hide_banner'",
+        "alias fp='ffplay -hide_banner'"
+    ],
+    "cups": [
+        "printeron() { systemctl start cups; systemctl start cups-browsed; }",
+        "printeroff() { systemctl stop cups-browsed; systemctl stop cups; }"
+    ],
+    "misc": [
+        "alias sudo='sudo '",
+        "alias open='xdg-open'",
+        "alias now='date +%Y-%m-%d\\ %H:%M:%S'",
+        "solat() { sleep $1 && kdialog --msgbox \"Solat!!!\"; }",
+        "repeat() { local n=\"$1\"; shift; while ((n-- > 0)); do \"$@\"; done; }"
+    ],
+    "grep": [
+        "alias g='grep --color=auto'",
+        "alias gr='grep --color=auto -r'",
+        "alias gri='grep --color=auto -ri'",
+        "alias gril='grep --color=auto -ril'",
+        "alias grep='grep --color=auto'",
+        "alias fgrep='fgrep --color=auto'",
+        "alias egrep='egrep --color=auto'",
+        "alias hgrep='history | grep'"
+    ],
+    "lang": [
+        "alias py='python'",
+        "alias py2='python2'",
+        "alias py3='python3'",
+        "alias rb='ruby'",
+        "alias pl='perl'",
+        "alias rvm='source /usr/share/rvm/scripts/rvm'"
+    ],
+    "color": [
+        "red() { echo -e \"\\e[31m$(cat)\\e[0m\"; }",
+        "green() { echo -e \"\\e[32m$(cat)\\e[0m\"; }",
+        "yellow() { echo -e \"\\e[33m$(cat)\\e[0m\"; }",
+        "blue() { echo -e \"\\e[34m$(cat)\\e[0m\"; }",
+        "magenta() { echo -e \"\\e[35m$(cat)\\e[0m\"; }",
+        "cyan() { echo -e \"\\e[36m$(cat)\\e[0m\"; }",
+        "black() { echo -e \"\\e[30m$(cat)\\e[0m\"; }",
+        "white() { echo -e \"\\e[97m$(cat)\\e[0m\"; }"
     ],
     "git": [
         "alias ga='git add'",
@@ -129,25 +123,53 @@
         "alias gcl1=\"git clone -b master --single-branch --depth 1\"",
         "alias gundo=\"git reset --hard HEAD\""
     ],
-    "media": [
-        "alias yd='youtube-dl --prefer-ffmpeg'",
-        "alias fm='ffmpeg -hide_banner'",
-        "alias fp='ffplay -hide_banner'"
+    "cd": [
+        "alias ..='cd ..'",
+        "alias ...='cd ../..'",
+        "alias ....='cd ../../../'",
+        "alias ~='cd ~'"
     ],
-    "lang": [
-        "alias py='python'",
-        "alias py2='python2'",
-        "alias py3='python3'",
-        "alias rb='ruby'",
-        "alias pl='perl'",
-        "alias rvm='source /usr/share/rvm/scripts/rvm'"
+    "pb": [
+        "alias pbcopy='xclip -selection clipboard'",
+        "alias pbpaste='xclip -selection clipboard -o'"
     ],
-    "disk": [
-        "alias duh='du -hs'",
-        "alias dub='du -b'",
-        "alias dd='dcfldd'",
-        "alias rsync='rsync -rltuDv'",
-        "alias rsyncnodot='rsync -rltDuv --exclude \".*\" --delete'"
+    "mqtt": [
+        "alias pub=\"mosquitto_pub\"",
+        "alias sub=\"mosquitto_sub -v\""
+    ],
+    "core": [
+        "alias chx=\"chmod +x\"",
+        "alias md='mkdir -p'",
+        "alias cpr=\"cp -r\"",
+        "alias fl='file'",
+        "alias hex=\"xxd -p\"",
+        "alias psa=\"ps -axo pid,%cpu,%mem,start,time,bsdtime,command\"",
+        "alias psc=\"ps -axo pid,command\"",
+        "alias realpath=\"readlink -f\""
+    ],
+    "string": [
+        "alias lower=\"tr 'A-Z' 'a-z'\"",
+        "alias upper=\"tr 'a-z' 'A-Z'\"",
+        "alias nospace=\"tr -d ' '\"",
+        "alias title=\"sed 's/[^ ]\\+/\\L\\u&/g'\"",
+        "alias quote=\"python -c 'import json; import sys; print json.dumps(sys.stdin.read())'\"",
+        "alias nocomment=\"grep -v ^#\"",
+        "alias nonewline=\"grep -v ^$\"",
+        "alias b64e=\"base64\"",
+        "alias b64d=\"base64 -d\"",
+        "alias pj='python -m json.tool'"
+    ],
+    "term": [
+        "alias c='clear'",
+        "alias q='exit'"
+    ],
+    "make": [
+        "alias mk='make'",
+        "alias mk4='make -j4'",
+        "alias mk8='make -j8'",
+        "alias mkc='make clean'",
+        "alias mkv='make V=s'",
+        "alias mkm='make menuconfig'"
     ],
     "kubectl": [
         "alias k=\"kubectl\"",
@@ -170,28 +192,9 @@
         "alias krhd=\"kubectl rollout history deployment\"",
         "alias krhp=\"kubectl rollout history pods\""
     ],
-    "find": [
-        "alias ff='find . -type f -iname'",
-        "alias fd='find . -type d -iname'",
-        "alias fe='find . -type f -executable -iname'",
-        "ffmin() { find . -type f -size +$1; }",
-        "ffmax() { find . -type f -size -$1; }"
-    ],
-    "make": [
-        "alias mk='make'",
-        "alias mk4='make -j4'",
-        "alias mk8='make -j8'",
-        "alias mkc='make clean'",
-        "alias mkv='make V=s'",
-        "alias mkm='make menuconfig'"
-    ],
-    "cups": [
-        "printeron() { systemctl start cups; systemctl start cups-browsed; }",
-        "printeroff() { systemctl stop cups-browsed; systemctl stop cups; }"
-    ],
-    "term": [
-        "alias c='clear'",
-        "alias q='exit'"
+    "picocom": [
+        "alias pc1152=\"picocom -b115200 /dev/ttyUSB0\"",
+        "alias pc5760=\"picocom -b57600 /dev/ttyUSB0\""
     ],
     "apt": [
         "alias au='apt update'",

@@ -151,7 +151,7 @@
                 <div class="card">
                     <div class="card-header">
                         brew <span class="badge badge-primary badge-pill" id="brew_count"
-                            count="7">7</span>
+                            count="4">4</span>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-primary btn-sm"
                                 onclick="do_select('brew', true)">All</button>
@@ -161,11 +161,6 @@
                         </div>
                     </div>
                     <div class="card-body" id="brew">
-                        
-                        <div class="form-check">
-                            <input class="form-check-input brew" id="alias-nosleep-pmset-noidle" type="checkbox"
-                                checked><label class="form-check-label" for="alias-nosleep-pmset-noidle">alias nosleep='pmset noidle'</label>
-                        </div>
                         
                         <div class="form-check">
                             <input class="form-check-input brew" id="alias-brin-brew-install" type="checkbox"
@@ -185,16 +180,6 @@
                         <div class="form-check">
                             <input class="form-check-input brew" id="alias-brcu-brew-cleanup" type="checkbox"
                                 checked><label class="form-check-label" for="alias-brcu-brew-cleanup">alias brcu='brew cleanup'</label>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input class="form-check-input brew" id="alias-swl-sudo-softwareupdate-l" type="checkbox"
-                                checked><label class="form-check-label" for="alias-swl-sudo-softwareupdate-l">alias swl='sudo softwareupdate -l'</label>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input class="form-check-input brew" id="alias-swu-sudo-softwareupdate-via" type="checkbox"
-                                checked><label class="form-check-label" for="alias-swu-sudo-softwareupdate-via">alias swu='sudo softwareupdate -via'</label>
                         </div>
                         
                     </div>
@@ -941,7 +926,7 @@
                 <div class="card">
                     <div class="card-header">
                         misc <span class="badge badge-primary badge-pill" id="misc_count"
-                            count="4">4</span>
+                            count="5">5</span>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-primary btn-sm"
                                 onclick="do_select('misc', true)">All</button>
@@ -955,6 +940,11 @@
                         <div class="form-check">
                             <input class="form-check-input misc" id="alias-sudo-sudo" type="checkbox"
                                 checked><label class="form-check-label" for="alias-sudo-sudo">alias sudo='sudo '</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input misc" id="alias-open-xdg-open" type="checkbox"
+                                checked><label class="form-check-label" for="alias-open-xdg-open">alias open='xdg-open'</label>
                         </div>
                         
                         <div class="form-check">
@@ -1064,6 +1054,38 @@
                         <div class="form-check">
                             <input class="form-check-input network" id="alias-sshc-rm-f-ssh-known-hosts" type="checkbox"
                                 checked><label class="form-check-label" for="alias-sshc-rm-f-ssh-known-hosts">alias sshc='rm -f ~/.ssh/known_hosts'</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        osx <span class="badge badge-primary badge-pill" id="osx_count"
+                            count="3">3</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="do_select('osx', true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="do_select('osx', false)">None</button>
+
+                        </div>
+                    </div>
+                    <div class="card-body" id="osx">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input osx" id="alias-nosleep-pmset-noidle" type="checkbox"
+                                checked><label class="form-check-label" for="alias-nosleep-pmset-noidle">alias nosleep='pmset noidle'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input osx" id="alias-swl-sudo-softwareupdate-l" type="checkbox"
+                                checked><label class="form-check-label" for="alias-swl-sudo-softwareupdate-l">alias swl='sudo softwareupdate -l'</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input osx" id="alias-swu-sudo-softwareupdate-via" type="checkbox"
+                                checked><label class="form-check-label" for="alias-swu-sudo-softwareupdate-via">alias swu='sudo softwareupdate -via'</label>
                         </div>
                         
                     </div>
