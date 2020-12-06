@@ -36,16 +36,26 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">Dotfiles Generator</a>
-            <div class="btn-toolbar" role="toolbar">
-                <div class="btn-group mr-2" role="group">
-                    <button type="button" class="btn btn-light btn-sm" disabled>Select</button>
-                    <button type="button" class="btn btn-primary btn-sm" onclick="do_select_all(true)">All</button>
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="do_select_all(false)">None</button>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-light btn-sm" disabled>Select</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="do_select_all(true)">All</button>
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="do_select_all(false)">None</button>
+                        </div>
+                        &nbsp;
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-success" onclick="download()"><strong>Download</strong></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <div class="btn-group pull-right" role="group">
+                    <a type="button" class="btn btn-light" href="https://github.com/mdminhazulhaque/dotfiles/"><strong>mdminhazulhaque/dotfiles</strong></a>
                 </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-success" onclick="download()"><strong>Download</strong></button>
-                </div>
-            </div>
+            </form>
         </nav>
     </header>
     <main role="main">
