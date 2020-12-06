@@ -3,6 +3,6 @@ alias md='mkdir -p'
 alias cpr="cp -r"
 alias fl='file'
 alias hex="xxd -p"
-alias psa="ps -axo pid,%cpu,%mem,start,time,bsdtime,command"
+alias psa="ps -axo pid,%cpu,%mem,command"
 alias psc="ps -axo pid,command"
 alias realpath="readlink -f"
