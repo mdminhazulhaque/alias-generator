@@ -29,7 +29,3 @@ env = Environment(loader=file_loader, extensions=['jinja2_slug.SlugExtension'])
 # generate html
 index = env.get_template('index.html')
 index.stream(aliases=DATA).dump('./docs/index.html')
-
-# generate readme
-readme = env.get_template('README.md')
-readme.stream(aliases=DATA).dump('./README.md')
