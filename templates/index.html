@@ -96,7 +96,7 @@
                     let input_id = $(this).attr("id");
                     let body = $("label[for='" + input_id + "']").text()
                     var alias;
-                    if (body.match(/[a-z]+\(\).*/)) {
+                    if (body.match(/^[a-z]+\(\).*/)) {
                         alias = body;
                     } else {
                         alias = "alias " + body;
