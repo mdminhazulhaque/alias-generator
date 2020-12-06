@@ -93,14 +93,20 @@
             var aliases = [];
             $("input").each(function () {
                 if ($(this).is(':checked')) {
-                    var input_id = $(this).attr("id");
-                    var alias = "alias " + $("label[for='" + input_id + "']").text();
+                    let input_id = $(this).attr("id");
+                    let body = $("label[for='" + input_id + "']").text()
+                    var alias;
+                    if (body.match(/[a-z]+\(\).*/)) {
+                        alias = body;
+                    } else {
+                        alias = "alias " + body;
+                    }
                     aliases.push(alias);
                 }
             });
-            var content = aliases.join("\n");
-            var filename = "aliases_" + new Date().getTime() + ".sh";
-            var element = document.createElement('a');
+            let content = aliases.join("\n");
+            let filename = "aliases_" + new Date().getTime() + ".sh";
+            let element = document.createElement('a');
             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
             element.setAttribute('download', filename);
             element.style.display = 'none';
