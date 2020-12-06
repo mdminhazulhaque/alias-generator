@@ -23,7 +23,8 @@ But be aware about security issues.
 You might not need all aliases at once, right? I have split up all the aliases into modules. Now you can load them based on your choice.
 
 ```
-{% for key in aliases %}{{ key }}{% endfor %}
+{% for key in aliases %}
+source /path/to/alias.d/{{ key }}.alias{% endfor %}
 
 ```
 

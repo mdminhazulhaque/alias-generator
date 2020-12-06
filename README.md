@@ -23,7 +23,34 @@ But be aware about security issues.
 You might not need all aliases at once, right? I have split up all the aliases into modules. Now you can load them based on your choice.
 
 ```
-adbaptbrewcdcolorcorecupsdiskdockerfindgitgrepjekyllkubectllanglsmakemediamiscmqttnetworkosxpbpicocompwgenstringterm
+
+source /path/to/alias.d/adb.alias
+source /path/to/alias.d/apt.alias
+source /path/to/alias.d/brew.alias
+source /path/to/alias.d/cd.alias
+source /path/to/alias.d/color.alias
+source /path/to/alias.d/core.alias
+source /path/to/alias.d/cups.alias
+source /path/to/alias.d/disk.alias
+source /path/to/alias.d/docker.alias
+source /path/to/alias.d/find.alias
+source /path/to/alias.d/git.alias
+source /path/to/alias.d/grep.alias
+source /path/to/alias.d/jekyll.alias
+source /path/to/alias.d/kubectl.alias
+source /path/to/alias.d/lang.alias
+source /path/to/alias.d/ls.alias
+source /path/to/alias.d/make.alias
+source /path/to/alias.d/media.alias
+source /path/to/alias.d/misc.alias
+source /path/to/alias.d/mqtt.alias
+source /path/to/alias.d/network.alias
+source /path/to/alias.d/osx.alias
+source /path/to/alias.d/pb.alias
+source /path/to/alias.d/picocom.alias
+source /path/to/alias.d/pwgen.alias
+source /path/to/alias.d/string.alias
+source /path/to/alias.d/term.alias
 
 ```
 
