@@ -8,7 +8,7 @@ alias drit="docker run -it"
 alias drm="docker rm"
 alias ds="docker stop"
 alias dsp="yes | docker system prune"
-# docker-compose
+alias dsv="yes | docker volume prune"
 alias dc="docker-compose"
 alias dcb="docker-compose build"
 alias dcb="docker-compose up"
