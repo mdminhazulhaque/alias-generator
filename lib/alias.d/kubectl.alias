@@ -1,5 +1,6 @@
 alias k="kubectl"
-alias kctx="kubectx"
+alias kx="kubectx"
+alias kn="kubens"
 alias kdd="kubectl delete deployments"
 alias kdp="kubectl delete pods"
 alias kds="kubectl delete services"
