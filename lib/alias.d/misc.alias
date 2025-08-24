@@ -3,3 +3,4 @@ alias open='xdg-open'
 alias now='date +%Y-%m-%d\ %H:%M:%S'
 solat() { sleep $1 && kdialog --msgbox "Solat!!!"; }
 repeat() { local n="$1"; shift; while ((n-- > 0)); do "$@"; done; }
+alias pssh='xpanes -c "ssh {}"'

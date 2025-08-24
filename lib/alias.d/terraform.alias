@@ -1,0 +1,8 @@
+alias ti='terraform init'
+alias tp='terraform plan'
+alias ta='terraform apply'
+alias tsl='terraform state ls'
+alias tsr='terraform state rm'
+alias tsm='terraform state mv'
+alias twl='terraform workspace list'
+alias tws='terraform workspace select'
