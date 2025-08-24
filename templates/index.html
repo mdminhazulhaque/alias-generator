@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Md. Minhazul Haque">
     <meta name="description" content="Ready to download bash/zsh aliases - Generate custom shell aliases for improved productivity">
-    <meta name="color-scheme" content="light">
+    <meta name="color-scheme" content="dark">
     <meta name="keywords" content="bash, zsh, shell, aliases, terminal, productivity, developer tools">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon.ico">
@@ -107,10 +107,10 @@
       }
       
       .main-header {
-        background: linear-gradient(135deg, #272822 0%, #1e1f1c 50%, #3e3d32 100%);
+        background: linear-gradient(135deg, #1a1a1a 0%, #0d1117 50%, #161b22 100%);
         background-size: 200% 200%;
         animation: gradientShift 8s ease infinite;
-        color: #f8f8f2;
+        color: #ffffff;
         padding: 3rem 0;
         margin-bottom: 2rem;
         position: relative;
@@ -125,9 +125,9 @@
         right: 0;
         bottom: 0;
         background: 
-          radial-gradient(circle at 20% 20%, rgba(166, 226, 46, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 80% 80%, rgba(249, 38, 114, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(102, 217, 239, 0.1) 0%, transparent 50%);
+          radial-gradient(circle at 20% 20%, rgba(79, 172, 254, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(250, 189, 47, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(181, 206, 168, 0.1) 0%, transparent 50%);
         pointer-events: none;
       }
       
@@ -149,7 +149,7 @@
       }
       
       .stats-card {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.4);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 0.5rem;
         padding: 1.5rem;
@@ -173,55 +173,107 @@
     <style>
       body {
         font-family: 'Fira Code', monospace;
-        background-color: #2d2d30;
-        color: #f8f8f2;
+        background-color: #0d1117;
+        color: #ffffff;
       }
       
       /* Terminal-like theme overrides */
       .card {
-        background-color: #3c3c3c;
-        border: 1px solid #555;
-        color: #f8f8f2;
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        color: #ffffff;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+      }
+      
+      .card:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+        border-color: #58a6ff;
       }
       
       .card-header {
-        background-color: #272822;
-        border-bottom: 1px solid #555;
-        color: #a6e22e;
+        background-color: #21262d;
+        border-bottom: 1px solid #30363d;
+        color: #58a6ff;
+        font-weight: 600;
       }
       
       .form-check-label {
-        color: #66d9ef;
+        color: #e6edf3;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.9rem;
+        font-weight: 400;
+        cursor: pointer;
       }
       
       .form-check-input:checked ~ .form-check-label {
-        color: #a6e22e;
+        color: #7dd3fc;
         font-weight: 500;
       }
       
+      .form-check-input {
+        background-color: #21262d;
+        border-color: #30363d;
+      }
+      
+      .form-check-input:checked {
+        background-color: #58a6ff;
+        border-color: #58a6ff;
+      }
+      
+      .form-check-input:focus {
+        border-color: #58a6ff;
+        box-shadow: 0 0 0 0.25rem rgba(88, 166, 255, 0.25);
+      }
+      
       .navbar-light {
-        background-color: #272822 !important;
+        background-color: #161b22 !important;
+        border-bottom: 1px solid #30363d;
       }
       
       .navbar-light .navbar-brand,
       .navbar-light .navbar-nav .nav-link {
-        color: #f8f8f2 !important;
+        color: #ffffff !important;
       }
       
       .alert-info {
-        background-color: #3c3c3c;
-        border-color: #66d9ef;
-        color: #66d9ef;
+        background-color: #0c2d48;
+        border-color: #58a6ff;
+        color: #58a6ff;
       }
       
       .badge {
-        background-color: #f92672 !important;
+        background-color: #58a6ff !important;
+        color: #ffffff;
       }
       
-      /* Light mode enforced for consistency */
-      [data-bs-theme="dark"] { 
-        color-scheme: light; 
+      .btn-outline-primary {
+        color: #58a6ff;
+        border-color: #58a6ff;
       }
+      
+      .btn-outline-primary:hover {
+        background-color: #58a6ff;
+        border-color: #58a6ff;
+        color: #ffffff;
+      }
+      
+      .btn-outline-secondary {
+        color: #8b949e;
+        border-color: #30363d;
+      }
+      
+      .btn-outline-secondary:hover {
+        background-color: #30363d;
+        border-color: #30363d;
+        color: #ffffff;
+      }
+      
+      .card-footer {
+        background-color: #0d1117 !important;
+        border-top: 1px solid #30363d;
+      }
+      
+      /* Remove the light mode override */
     </style>
   </head>
   <body>
@@ -245,41 +297,24 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="stats-card">
-              <span class="stats-number" id="selected-count">0</span>
-              <span class="stats-label">Selected Aliases</span>
+            <div class="d-flex flex-column gap-3">
+              <div class="stats-card">
+                <span class="stats-number" id="selected-count">0</span>
+                <span class="stats-label">Selected Aliases</span>
+              </div>
+              <div class="text-center">
+                <a href="https://github.com/mdminhazulhaque/alias-generator" class="btn btn-outline-light" target="_blank">
+                  <i class="bi bi-github"></i> Contribute on GitHub
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <i class="bi bi-terminal"></i> Alias Generator
-        </a>
-        <div class="navbar-nav ms-auto">
-          <a href="https://github.com/mdminhazulhaque/alias-generator" class="btn btn-outline-dark">
-            <i class="bi bi-github"></i> View on GitHub
-          </a>
-        </div>
-      </div>
-    </nav>
     <!-- Main Content -->
     <main class="container py-4">
-      <div class="row mb-4">
-        <div class="col-12">
-          <div class="alert alert-info d-flex align-items-center" role="alert">
-            <i class="bi bi-info-circle-fill me-2"></i>
-            <div>
-              <strong>How to use:</strong> Select the aliases you want, then click "Download Aliases" to get a .sh file. 
-              Source the file in your shell: <code>source aliases_*.sh</code>
-            </div>
-          </div>
-        </div>
-      </div>
       
       <div class="row" data-masonry='{"percentPosition": true }'>
         {% for key in aliases %}
@@ -319,16 +354,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-4 mt-5" style="background-color: #272822; border-top: 1px solid #555;">
+    <footer class="py-4 mt-5" style="background-color: #161b22; border-top: 1px solid #30363d;">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <p class="mb-0" style="color: #75715e;">&copy; 2025 Md. Minhazul Haque. All rights reserved.</p>
-          </div>
-          <div class="col-md-6 text-end">
-            <a href="https://github.com/mdminhazulhaque/alias-generator" class="text-decoration-none" style="color: #66d9ef;">
-              <i class="bi bi-github"></i> Contribute on GitHub
-            </a>
+          <div class="col-12 text-center">
+            <p class="mb-0" style="color: #8b949e;">&copy; 2025 Md. Minhazul Haque. All rights reserved.</p>
           </div>
         </div>
       </div>
