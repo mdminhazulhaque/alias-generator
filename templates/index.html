@@ -1,236 +1,581 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
-    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Md. Minhazul Haque">
-    <meta name="description" content="Alias Generator for bash/zsh">
+    <meta name="description" content="Ready to download bash/zsh aliases - Generate custom shell aliases for improved productivity">
+    <meta name="color-scheme" content="light">
+    <meta name="keywords" content="bash, zsh, shell, aliases, terminal, productivity, developer tools">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <!-- Global site tag (gtag.js) - Google Analytics (UA) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57632461-8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'UA-57632461-8', { 'anonymize_ip': true });
+    </script>
     <meta property="og:image" content="https://repository-images.githubusercontent.com/65431303/50832e82-9d8f-493d-a1a1-9ddda9143042" />
-    <meta property="og:title" content="mdminhazulhaque/alias-generator" />
+    <meta property="og:title" content="Alias Generator - mdminhazulhaque/alias-generator" />
     <meta property="og:url" content="https://mdminhazulhaque.github.io/alias-generator/" />
-    <meta property="og:description" content="Ready to download bash aliases - mdminhazulhaque/alias-generator" />
+    <meta property="og:description" content="Ready to download bash/zsh aliases - Generate custom shell aliases for improved productivity" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-    <title>Alias Generator</title>
+    <title>Alias Generator - Bash/Zsh Shell Aliases</title>
     <style>
       .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
       }
+      
       @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-      font-size: 3.5rem;
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
       }
-      }
-      .b-example-divider {
-      width: 100%;
-      height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
-      border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-      .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-      }
+      
       .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
+        vertical-align: -.125em;
+        fill: currentColor;
       }
+      
       .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
       }
+      
       .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
       }
-      .btn-bd-primary {
-      --bd-violet-bg: #712cf9;
-      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-      --bs-btn-font-weight: 600;
-      --bs-btn-color: var(--bs-white);
-      --bs-btn-bg: var(--bd-violet-bg);
-      --bs-btn-border-color: var(--bd-violet-bg);
-      --bs-btn-hover-color: var(--bs-white);
-      --bs-btn-hover-bg: #6528e0;
-      --bs-btn-hover-border-color: #6528e0;
-      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-      --bs-btn-active-color: var(--bs-btn-hover-color);
-      --bs-btn-active-bg: #5a23c8;
-      --bs-btn-active-border-color: #5a23c8;
+      
+      .card {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        transition: box-shadow 0.15s ease-in-out;
       }
-      .bd-mode-toggle {
-      z-index: 1500;
+      
+      .card:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
       }
-      .bd-mode-toggle .dropdown-menu .active .bi {
-      display: block !important;
+      
+      .card-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        font-weight: 600;
+      }
+      
+      .form-check-label {
+        font-family: 'Fira Code', monospace;
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: #495057;
+        cursor: pointer;
+      }
+      
+      .form-check-input:checked ~ .form-check-label {
+        color: #212529;
+        font-weight: 500;
+      }
+      
+      .btn-group .btn {
+        font-size: 0.875rem;
+      }
+      
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+      
+      .main-header {
+        background: linear-gradient(135deg, #272822 0%, #1e1f1c 50%, #3e3d32 100%);
+        background-size: 200% 200%;
+        animation: gradientShift 8s ease infinite;
+        color: #f8f8f2;
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .main-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 20% 20%, rgba(166, 226, 46, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(249, 38, 114, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(102, 217, 239, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+      }
+      
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .main-header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      
+      .main-header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+      
+      .stats-card {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        text-align: center;
+        backdrop-filter: blur(10px);
+      }
+      
+      .stats-number {
+        font-size: 2rem;
+        font-weight: 700;
+        display: block;
+      }
+      
+      .stats-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
     </style>
     <style>
       body {
-      font-family: 'Fira Code', serif !important;
+        font-family: 'Fira Code', monospace;
+        background-color: #2d2d30;
+        color: #f8f8f2;
+      }
+      
+      /* Terminal-like theme overrides */
+      .card {
+        background-color: #3c3c3c;
+        border: 1px solid #555;
+        color: #f8f8f2;
+      }
+      
+      .card-header {
+        background-color: #272822;
+        border-bottom: 1px solid #555;
+        color: #a6e22e;
+      }
+      
+      .form-check-label {
+        color: #66d9ef;
+      }
+      
+      .form-check-input:checked ~ .form-check-label {
+        color: #a6e22e;
+        font-weight: 500;
+      }
+      
+      .navbar-light {
+        background-color: #272822 !important;
+      }
+      
+      .navbar-light .navbar-brand,
+      .navbar-light .navbar-nav .nav-link {
+        color: #f8f8f2 !important;
+      }
+      
+      .alert-info {
+        background-color: #3c3c3c;
+        border-color: #66d9ef;
+        color: #66d9ef;
+      }
+      
+      .badge {
+        background-color: #f92672 !important;
+      }
+      
+      /* Light mode enforced for consistency */
+      [data-bs-theme="dark"] { 
+        color-scheme: light; 
       }
     </style>
   </head>
   <body>
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-      </symbol>
-    </svg>
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-          <use href="#circle-half"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em">
-              <use href="#sun-fill"></use>
-            </svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em">
-              <use href="#moon-stars-fill"></use>
-            </svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em">
-              <use href="#circle-half"></use>
-            </svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div class="container">
-      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <span class="fs-4 fw-bold">Alias Generator</span>
-        </a>
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <div class="btn-group">
-              <button class="btn active btn-sm"><i class="bi bi-toggles"></i> Select</button>
-              <button class="btn btn-primary btn-sm" onclick="do_select_all(true)">All</button>
-              <button class="btn btn-secondary btn-sm me-2" onclick="do_select_all(false)">None</button>
+    <!-- Hero Section -->
+    <header class="main-header">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h1>Alias Generator</h1>
+            <p class="lead mb-4">Generate and download custom bash/zsh aliases to boost your terminal productivity. Select from hundreds of carefully crafted aliases organized by category.</p>
+            <div class="d-flex gap-3 flex-wrap">
+              <button class="btn btn-light btn-lg" onclick="do_select_all(true)">
+                <i class="bi bi-check-all"></i> Select All
+              </button>
+              <button class="btn btn-outline-light btn-lg" onclick="do_select_all(false)">
+                <i class="bi bi-x-square"></i> Clear All
+              </button>
+              <button class="btn btn-success btn-lg" onclick="download()">
+                <i class="bi bi-cloud-arrow-down-fill"></i> Download Aliases
+              </button>
             </div>
-          </li>
-          <li class="nav-item"><button class="btn btn-primary btn-sm me-2" onclick="download()"><i class="bi bi-cloud-arrow-down-fill"></i> Download</button></li>
-          <li class="nav-item"><a href="https://github.com/mdminhazulhaque/alias-generator" class="btn btn-light btn-sm btn-outline-dark"><i class="bi bi-github"></i> mdminhazulhaque/alias-generator</a></li>
-        </ul>
-      </header>
-    </div>
-    <main class="container">
+          </div>
+          <div class="col-lg-4">
+            <div class="stats-card">
+              <span class="stats-number" id="selected-count">0</span>
+              <span class="stats-label">Selected Aliases</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="bi bi-terminal"></i> Alias Generator
+        </a>
+        <div class="navbar-nav ms-auto">
+          <a href="https://github.com/mdminhazulhaque/alias-generator" class="btn btn-outline-dark">
+            <i class="bi bi-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="container py-4">
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="alert alert-info d-flex align-items-center" role="alert">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            <div>
+              <strong>How to use:</strong> Select the aliases you want, then click "Download Aliases" to get a .sh file. 
+              Source the file in your shell: <code>source aliases_*.sh</code>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <div class="row" data-masonry='{"percentPosition": true }'>
         {% for key in aliases %}
         <div class="col-sm-6 col-lg-4 mb-4">
-          <div class="card">
-            <h5 class="card-header"><strong>{{ key }}</strong></h5>
+          <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">
+                <i class="bi bi-folder2-open me-2"></i>
+                <strong>{{ key }}</strong>
+              </h5>
+              <span class="badge bg-secondary" id="count-{{ key }}">0</span>
+            </div>
             <div class="card-body" id="{{ key }}">
               {% for alias in aliases[key] %}
-              <div class="form-check">
-                <input class="form-check-input {{ key }}"  id="{{ key+alias | slug }}" type="checkbox"
-                  checked><label class="form-check-label" for="{{ key+alias | slug }}">{{ alias | replace("alias ","") }}</label>
+              <div class="form-check mb-2">
+                <input class="form-check-input {{ key }}" id="{{ key+alias | slug }}" type="checkbox" checked>
+                <label class="form-check-label" for="{{ key+alias | slug }}">
+                  {{ alias | replace("alias ","") }}
+                </label>
               </div>
               {% endfor %}
-              <br>
-              <button type="button" class="btn btn-primary btn-sm" onclick="do_select('{{ key }}', true)">All</button>
-              <button type="button" class="btn btn-secondary btn-sm" onclick="do_select('{{ key }}', false)">None</button>
+            </div>
+            <div class="card-footer bg-transparent">
+              <div class="btn-group w-100" role="group">
+                <button type="button" class="btn btn-outline-primary btn-sm" onclick="do_select('{{ key }}', true)">
+                  <i class="bi bi-check-all"></i> All
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="do_select('{{ key }}', false)">
+                  <i class="bi bi-x-square"></i> None
+                </button>
+              </div>
             </div>
           </div>
         </div>
         {% endfor %}
       </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-5" style="background-color: #272822; border-top: 1px solid #555;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="mb-0" style="color: #75715e;">&copy; 2025 Md. Minhazul Haque. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-end">
+            <a href="https://github.com/mdminhazulhaque/alias-generator" class="text-decoration-none" style="color: #66d9ef;">
+              <i class="bi bi-github"></i> Contribute on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script>
+      // Update counters on page load
+      $(document).ready(function() {
+        updateAllCounters();
+        
+        // Add change event listeners to all checkboxes
+        $('input[type="checkbox"]').on('change', function() {
+          updateAllCounters();
+        });
+      });
+
       function download() {
-          var aliases = [];
-          $("input").each(function () {
-              if ($(this).is(':checked')) {
-                  let input_id = $(this).attr("id");
-                  let body = $("label[for='" + input_id + "']").text()
-                  var alias;
-                  if (body.match(/^[a-z]+\(\).*/)) {
-                      alias = body;
-                  } else {
-                      alias = "alias " + body;
-                  }
-                  aliases.push(alias);
+        // Show loading state
+        const downloadBtn = document.querySelector('button[onclick="download()"]');
+        const originalBtnText = downloadBtn.innerHTML;
+        downloadBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Generating...';
+        downloadBtn.disabled = true;
+        
+        try {
+          const aliases = [];
+          const categoryStats = {};
+          let selectedCount = 0;
+          
+          // Collect selected aliases with category tracking
+          $("input[type='checkbox']").each(function () {
+            if ($(this).is(':checked')) {
+              selectedCount++;
+              const input_id = $(this).attr("id");
+              const body = $("label[for='" + input_id + "']").text().trim();
+              const category = $(this).attr("class").split(' ')[1]; // Get category from class
+              
+              // Track statistics per category
+              if (!categoryStats[category]) {
+                categoryStats[category] = 0;
               }
+              categoryStats[category]++;
+              
+              let alias;
+              // Handle different alias formats
+              if (body.match(/^[a-z_][a-zA-Z0-9_-]*\(\)/)) {
+                // Function format
+                alias = body;
+              } else if (body.includes('=')) {
+                // Already formatted alias
+                alias = body.startsWith('alias ') ? body : `alias ${body}`;
+              } else {
+                // Simple alias format
+                alias = `alias ${body}`;
+              }
+              
+              aliases.push({
+                content: alias,
+                category: category,
+                original: body
+              });
+            }
           });
-          let content = aliases.join("\n");
-          let filename = "aliases_" + new Date().getTime() + ".sh";
-          let element = document.createElement('a');
-          element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
-          element.setAttribute('download', filename);
+          
+          // Validate selection
+          if (selectedCount === 0) {
+            showNotification('Please select at least one alias before downloading.', 'warning');
+            return;
+          }
+          
+          // Generate comprehensive header
+          const now = new Date();
+          const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
+          const dateString = now.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+          
+          const header = [
+            "#!/bin/bash",
+            "#",
+            "# Generated by Alias Generator",
+            "# https://mdminhazulhaque.github.io/alias-generator/",
+            "#",
+            `# Generated on: ${dateString}`,
+            `# Selected aliases: ${selectedCount}`,
+            `# Categories: ${Object.keys(categoryStats).length}`,
+            "#",
+            "# Usage:",
+            "#   1. Save this file (e.g., as ~/.aliases)",
+            "#   2. Add to your shell profile (~/.bashrc or ~/.zshrc):",
+            "#      source ~/.aliases",
+            "#   3. Reload your shell or run: source ~/.bashrc",
+            "#",
+            ""
+          ];
+          
+          // Add category breakdown in header
+          if (Object.keys(categoryStats).length > 1) {
+            header.push("# Category breakdown:");
+            Object.entries(categoryStats)
+              .sort((a, b) => a[0].localeCompare(b[0]))
+              .forEach(([category, count]) => {
+                header.push(`#   ${category}: ${count} aliases`);
+              });
+            header.push("#", "");
+          }
+          
+          // Group aliases by category for better organization
+          const categorizedAliases = {};
+          aliases.forEach(alias => {
+            if (!categorizedAliases[alias.category]) {
+              categorizedAliases[alias.category] = [];
+            }
+            categorizedAliases[alias.category].push(alias.content);
+          });
+          
+          // Build content with category sections
+          const content = [];
+          content.push(...header);
+          
+          // Sort categories alphabetically
+          const sortedCategories = Object.keys(categorizedAliases).sort();
+          
+          sortedCategories.forEach((category, index) => {
+            // Add category header
+            content.push(`# ${category.toUpperCase()} ALIASES`);
+            content.push(`# ${categorizedAliases[category].length} aliases`);
+            content.push("");
+            
+            // Add aliases for this category
+            categorizedAliases[category].forEach(alias => {
+              content.push(alias);
+            });
+            
+            // Add spacing between categories (except last one)
+            if (index < sortedCategories.length - 1) {
+              content.push("", "");
+            }
+          });
+          
+          // Add footer
+          content.push("", "# End of generated aliases");
+          
+          // Generate filename with timestamp
+          const filename = `aliases_${timestamp}.sh`;
+          
+          // Create and trigger download
+          const fileContent = content.join("\n");
+          const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          
+          const element = document.createElement('a');
+          element.href = url;
+          element.download = filename;
           element.style.display = 'none';
+          
+          // Add to DOM, click, and clean up
           document.body.appendChild(element);
           element.click();
           document.body.removeChild(element);
+          
+          // Clean up blob URL
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+          
+          // Show detailed success message
+          const categoryList = Object.entries(categoryStats)
+            .sort((a, b) => b[1] - a[1]) // Sort by count descending
+            .slice(0, 3) // Show top 3 categories
+            .map(([cat, count]) => `${cat} (${count})`)
+            .join(', ');
+            
+          const successMsg = `
+            <strong>Downloaded successfully!</strong><br>
+            📄 <strong>${filename}</strong><br>
+            📊 ${selectedCount} aliases from ${Object.keys(categoryStats).length} categories<br>
+            🏷️ Top categories: ${categoryList}
+          `;
+          
+          showNotification(successMsg, 'success');
+          
+          // Track download analytics (if gtag is available)
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'download', {
+              'event_category': 'aliases',
+              'event_label': 'alias_file',
+              'value': selectedCount
+            });
+          }
+          
+        } catch (error) {
+          console.error('Download error:', error);
+          showNotification('Error generating download. Please try again.', 'danger');
+        } finally {
+          // Restore button state
+          downloadBtn.innerHTML = originalBtnText;
+          downloadBtn.disabled = false;
+        }
       }
+
       function do_select_all(state) {
-          $("input").each(function () {
-              this.checked = state;
-          });
+        $("input[type='checkbox']").each(function () {
+          this.checked = state;
+        });
+        updateAllCounters();
       }
+
       function do_select(cardname, state) {
-          $("input." + cardname).each(function () {
-              this.checked = state;
-          });
+        $("input." + cardname).each(function () {
+          this.checked = state;
+        });
+        updateAllCounters();
+      }
+
+      function updateAllCounters() {
+        // Update global counter
+        let totalSelected = $("input[type='checkbox']:checked").length;
+        $('#selected-count').text(totalSelected);
+        
+        // Update individual card counters
+        {% for key in aliases %}
+        updateCardCounter('{{ key }}');
+        {% endfor %}
+      }
+
+      function updateCardCounter(cardname) {
+        let checkedCount = $("input." + cardname + ":checked").length;
+        $('#count-' + cardname).text(checkedCount);
+      }
+
+      function showNotification(message, type = 'info') {
+        // Create notification element
+        let notification = $(`
+          <div class="alert alert-${type} alert-dismissible fade show position-fixed" 
+               style="top: 20px; right: 20px; z-index: 9999; min-width: 300px;" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        `);
+        
+        $('body').append(notification);
+        
+        // Auto-remove after 3 seconds
+        setTimeout(function() {
+          notification.alert('close');
+        }, 3000);
       }
     </script>
   </body>
