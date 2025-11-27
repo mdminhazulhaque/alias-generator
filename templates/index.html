@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" class="dark">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +9,7 @@
     <meta name="keywords" content="bash, zsh, shell, aliases, terminal, productivity, developer tools">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon.ico">
+    
     <!-- Global site tag (gtag.js) - Google Analytics (UA) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57632461-8"></script>
     <script>
@@ -17,335 +18,210 @@
       gtag('js', new Date());
       gtag('config', 'UA-57632461-8', { 'anonymize_ip': true });
     </script>
+    
     <meta property="og:image" content="https://repository-images.githubusercontent.com/65431303/50832e82-9d8f-493d-a1a1-9ddda9143042" />
     <meta property="og:title" content="Alias Generator - mdminhazulhaque/alias-generator" />
     <meta property="og:url" content="https://mdminhazulhaque.github.io/alias-generator/" />
     <meta property="og:description" content="Ready to download bash/zsh aliases - Generate custom shell aliases for improved productivity" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-    <title>Alias Generator - Bash/Zsh Shell Aliases</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            },
+            borderRadius: {
+              lg: "var(--radius)",
+              md: "calc(var(--radius) - 2px)",
+              sm: "calc(var(--radius) - 4px)",
+            },
+          },
+        },
+      }
+    </script>
+    
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+      :root {
+        --background: 224 71% 4%;
+        --foreground: 213 31% 91%;
+        --card: 224 71% 4%;
+        --card-foreground: 213 31% 91%;
+        --popover: 224 71% 4%;
+        --popover-foreground: 213 31% 91%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 1.2%;
+        --secondary: 222.2 47.4% 11.2%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 223 47% 11%;
+        --muted-foreground: 215.4 16.3% 56.9%;
+        --accent: 216 34% 17%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 216 34% 17%;
+        --input: 216 34% 17%;
+        --ring: 216 34% 17%;
+        --radius: 0.5rem;
       }
       
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
+      body {
+        font-family: 'Inter', sans-serif;
       }
       
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
+      .checkbox-wrapper input:checked + div {
+        background-color: hsl(var(--primary));
+        border-color: hsl(var(--primary));
       }
       
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-      
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-      
-      .card {
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        transition: box-shadow 0.15s ease-in-out;
-      }
-      
-      .card:hover {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-      }
-      
-      .card-header {
-        background-color: #f8f9fa;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-        font-weight: 600;
-      }
-      
-      .form-check-label {
-        font-family: 'Fira Code', monospace;
-        font-size: 0.9rem;
-        font-weight: 400;
-        color: #495057;
-        cursor: pointer;
-      }
-      
-      .form-check-input:checked ~ .form-check-label {
-        color: #212529;
-        font-weight: 500;
-      }
-      
-      .btn-group .btn {
-        font-size: 0.875rem;
-      }
-      
-      .navbar-brand {
-        font-weight: 700;
-        font-size: 1.5rem;
-      }
-      
-      .main-header {
-        background: linear-gradient(135deg, #1a1a1a 0%, #0d1117 50%, #161b22 100%);
-        background-size: 200% 200%;
-        animation: gradientShift 8s ease infinite;
-        color: #ffffff;
-        padding: 3rem 0;
-        margin-bottom: 2rem;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .main-header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: 
-          radial-gradient(circle at 20% 20%, rgba(79, 172, 254, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 80% 80%, rgba(250, 189, 47, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(181, 206, 168, 0.1) 0%, transparent 50%);
-        pointer-events: none;
-      }
-      
-      @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      
-      .main-header h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-      }
-      
-      .main-header p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-      }
-      
-      .stats-card {
-        background: rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 0.5rem;
-        padding: 1.5rem;
-        text-align: center;
-        backdrop-filter: blur(10px);
-      }
-      
-      .stats-number {
-        font-size: 2rem;
-        font-weight: 700;
+      .checkbox-wrapper input:checked + div svg {
         display: block;
       }
-      
-      .stats-label {
-        font-size: 0.9rem;
-        opacity: 0.8;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
     </style>
-    <style>
-      body {
-        font-family: 'Fira Code', monospace;
-        background-color: #0d1117;
-        color: #ffffff;
-      }
-      
-      /* Terminal-like theme overrides */
-      .card {
-        background-color: #161b22;
-        border: 1px solid #30363d;
-        color: #ffffff;
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
-      }
-      
-      .card:hover {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
-        border-color: #58a6ff;
-      }
-      
-      .card-header {
-        background-color: #21262d;
-        border-bottom: 1px solid #30363d;
-        color: #58a6ff;
-        font-weight: 600;
-      }
-      
-      .form-check-label {
-        color: #e6edf3;
-        font-family: 'Fira Code', monospace;
-        font-size: 0.9rem;
-        font-weight: 400;
-        cursor: pointer;
-      }
-      
-      .form-check-input:checked ~ .form-check-label {
-        color: #7dd3fc;
-        font-weight: 500;
-      }
-      
-      .form-check-input {
-        background-color: #21262d;
-        border-color: #30363d;
-      }
-      
-      .form-check-input:checked {
-        background-color: #58a6ff;
-        border-color: #58a6ff;
-      }
-      
-      .form-check-input:focus {
-        border-color: #58a6ff;
-        box-shadow: 0 0 0 0.25rem rgba(88, 166, 255, 0.25);
-      }
-      
-      .navbar-light {
-        background-color: #161b22 !important;
-        border-bottom: 1px solid #30363d;
-      }
-      
-      .navbar-light .navbar-brand,
-      .navbar-light .navbar-nav .nav-link {
-        color: #ffffff !important;
-      }
-      
-      .alert-info {
-        background-color: #0c2d48;
-        border-color: #58a6ff;
-        color: #58a6ff;
-      }
-      
-      .badge {
-        background-color: #58a6ff !important;
-        color: #ffffff;
-      }
-      
-      .btn-outline-primary {
-        color: #58a6ff;
-        border-color: #58a6ff;
-      }
-      
-      .btn-outline-primary:hover {
-        background-color: #58a6ff;
-        border-color: #58a6ff;
-        color: #ffffff;
-      }
-      
-      .btn-outline-secondary {
-        color: #8b949e;
-        border-color: #30363d;
-      }
-      
-      .btn-outline-secondary:hover {
-        background-color: #30363d;
-        border-color: #30363d;
-        color: #ffffff;
-      }
-      
-      .card-footer {
-        background-color: #0d1117 !important;
-        border-top: 1px solid #30363d;
-      }
-      
-      /* Remove the light mode override */
-    </style>
+    
+    <title>Alias Generator - Bash/Zsh Shell Aliases</title>
   </head>
-  <body>
-    <!-- Hero Section -->
-    <header class="main-header">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-8">
-            <h1>Alias Generator</h1>
-            <p class="lead mb-4">Generate and download custom bash/zsh aliases to boost your terminal productivity. Select from hundreds of carefully crafted aliases organized by category.</p>
-            <div class="d-flex gap-3 flex-wrap">
-              <button class="btn btn-light btn-lg" onclick="do_select_all(true)">
-                <i class="bi bi-check-all"></i> Select All
-              </button>
-              <button class="btn btn-outline-light btn-lg" onclick="do_select_all(false)">
-                <i class="bi bi-x-square"></i> Clear All
-              </button>
-              <button class="btn btn-success btn-lg" onclick="download()">
-                <i class="bi bi-cloud-arrow-down-fill"></i> Download Aliases
-              </button>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="d-flex flex-column gap-3">
-              <div class="stats-card">
-                <span class="stats-number" id="selected-count">0</span>
-                <span class="stats-label">Selected Aliases</span>
-              </div>
-              <div class="text-center">
-                <a href="https://github.com/mdminhazulhaque/alias-generator" class="btn btn-outline-light" target="_blank">
-                  <i class="bi bi-github"></i> Contribute on GitHub
-                </a>
-              </div>
-            </div>
-          </div>
+  <body class="bg-background text-foreground min-h-screen flex flex-col antialiased selection:bg-primary/20 selection:text-primary">
+    
+    <!-- Header -->
+    <header class="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="terminal" class="h-6 w-6"></i>
+          <span class="font-bold text-xl tracking-tight">Alias Generator</span>
         </div>
+        <a href="https://github.com/mdminhazulhaque/alias-generator" target="_blank" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+          <i data-lucide="github" class="h-4 w-4"></i>
+          <span>GitHub</span>
+        </a>
       </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 py-12 md:py-20 lg:py-24">
+      <div class="max-w-3xl mx-auto text-center space-y-8">
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight lg:text-7xl bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
+          Boost Your Terminal Productivity
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground max-w-[42rem] mx-auto leading-relaxed">
+          Generate and download custom bash/zsh aliases. Select from hundreds of carefully crafted aliases organized by category.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <button onclick="download()" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 shadow-lg shadow-primary/20">
+            <i data-lucide="download" class="mr-2 h-4 w-4"></i>
+            Download Aliases
+          </button>
+          
+          <div class="flex items-center gap-2">
+            <button onclick="do_select_all(true)" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-4">
+              <i data-lucide="check-square" class="mr-2 h-4 w-4"></i>
+              Select All
+            </button>
+            <button onclick="do_select_all(false)" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-4">
+              <i data-lucide="x-square" class="mr-2 h-4 w-4"></i>
+              Clear
+            </button>
+          </div>
+        </div>
+        
+        <div class="inline-flex items-center rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground">
+          <span class="flex h-2 w-2 rounded-full bg-green-500 mr-2"></span>
+          <span id="selected-count" class="font-mono font-medium text-foreground mr-1">0</span> aliases selected
+        </div>
+      </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="container py-4">
-      
-      <div class="row" data-masonry='{"percentPosition": true }'>
+    <main class="container mx-auto px-4 pb-20 flex-1">
+      <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
         {% for key in aliases %}
-        <div class="col-sm-6 col-lg-4 mb-4">
-          <div class="card h-100">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h5 class="mb-0">
-                <i class="bi bi-folder2-open me-2"></i>
-                <strong>{{ key }}</strong>
-              </h5>
-              <span class="badge bg-secondary" id="count-{{ key }}">0</span>
-            </div>
-            <div class="card-body" id="{{ key }}">
-              {% for alias in aliases[key] %}
-              <div class="form-check mb-2">
-                <input class="form-check-input {{ key }}" id="{{ key+alias | slug }}" type="checkbox" checked>
-                <label class="form-check-label" for="{{ key+alias | slug }}">
-                  {{ alias | replace("alias ","") }}
-                </label>
+        <div class="break-inside-avoid">
+          <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6 pb-4 border-b border-border/50">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold leading-none tracking-tight flex items-center gap-2">
+                  <i data-lucide="folder" class="h-4 w-4 text-muted-foreground"></i>
+                  {{ key }}
+                </h3>
+                <span id="count-{{ key }}" class="inline-flex items-center rounded-md border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-secondary-foreground">0</span>
               </div>
+            </div>
+            
+            <div class="p-6 pt-4 space-y-3">
+              {% for alias in aliases[key] %}
+              <label class="checkbox-wrapper flex items-start space-x-3 cursor-pointer group">
+                <div class="relative flex items-center">
+                  <input type="checkbox" class="peer sr-only {{ key }}" id="{{ key+alias | slug }}" checked>
+                  <div class="h-4 w-4 rounded border border-primary text-primary-foreground shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring peer-focus:ring-2 peer-focus:ring-ring/50 transition-all flex items-center justify-center">
+                    <svg class="hidden h-3 w-3 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                </div>
+                <span class="text-sm font-mono text-muted-foreground group-hover:text-foreground transition-colors break-all leading-tight pt-0.5">
+                  {{ alias | replace("alias ","") }}
+                </span>
+              </label>
               {% endfor %}
             </div>
-            <div class="card-footer bg-transparent">
-              <div class="btn-group w-100" role="group">
-                <button type="button" class="btn btn-outline-primary btn-sm" onclick="do_select('{{ key }}', true)">
-                  <i class="bi bi-check-all"></i> All
-                </button>
-                <button type="button" class="btn btn-outline-primary btn-sm" onclick="do_select('{{ key }}', false)">
-                  <i class="bi bi-x-square"></i> None
-                </button>
-              </div>
+            
+            <div class="flex items-center p-4 pt-0 gap-2 border-t border-border/50 bg-muted/20 rounded-b-xl mt-2">
+              <button onclick="do_select('{{ key }}', true)" class="flex-1 inline-flex items-center justify-center rounded-md text-xs font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-8 px-3">
+                All
+              </button>
+              <div class="w-px h-4 bg-border"></div>
+              <button onclick="do_select('{{ key }}', false)" class="flex-1 inline-flex items-center justify-center rounded-md text-xs font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-8 px-3">
+                None
+              </button>
             </div>
           </div>
         </div>
@@ -354,31 +230,38 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-4 mt-5" style="background-color: #161b22; border-top: 1px solid #30363d;">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <p class="mb-0" style="color: #8b949e;">&copy; 2025 Md. Minhazul Haque. All rights reserved.</p>
-          </div>
-        </div>
+    <footer class="border-t border-border/40 py-8 bg-muted/20">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-sm text-muted-foreground">
+          &copy; 2025 Md. Minhazul Haque. All rights reserved.
+        </p>
       </div>
     </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
     <script>
-      // Update counters on page load
-      $(document).ready(function() {
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // State management
+      document.addEventListener('DOMContentLoaded', () => {
         updateAllCounters();
         
         // Add change event listeners to all checkboxes
-        $('input[type="checkbox"]').on('change', function() {
-          updateAllCounters();
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+          checkbox.addEventListener('change', updateAllCounters);
         });
       });
 
       function download() {
-        // Show loading state
         const downloadBtn = document.querySelector('button[onclick="download()"]');
-        const originalBtnText = downloadBtn.innerHTML;
-        downloadBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Generating...';
+        const originalContent = downloadBtn.innerHTML;
+        
+        // Loading state
+        downloadBtn.innerHTML = '<i data-lucide="loader-2" class="mr-2 h-4 w-4 animate-spin"></i> Generating...';
+        lucide.createIcons();
         downloadBtn.disabled = true;
         
         try {
@@ -386,30 +269,34 @@
           const categoryStats = {};
           let selectedCount = 0;
           
-          // Collect selected aliases with category tracking
-          $("input[type='checkbox']").each(function () {
-            if ($(this).is(':checked')) {
+          // Collect selected aliases
+          document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+            if (checkbox.checked) {
               selectedCount++;
-              const input_id = $(this).attr("id");
-              const body = $("label[for='" + input_id + "']").text().trim();
-              const category = $(this).attr("class").split(' ')[1]; // Get category from class
+              const input_id = checkbox.id;
+              // Find the label text. In our new structure, it's the span sibling's text
+              const labelSpan = checkbox.closest('label').querySelector('span');
+              const body = labelSpan.textContent.trim();
               
-              // Track statistics per category
+              // Get category from class (it's the second class usually, but let's be safer)
+              // The class list is "peer sr-only {{ key }}"
+              // So we can iterate classes and find the one that isn't peer or sr-only
+              let category = "";
+              checkbox.classList.forEach(cls => {
+                if (cls !== 'peer' && cls !== 'sr-only') category = cls;
+              });
+              
               if (!categoryStats[category]) {
                 categoryStats[category] = 0;
               }
               categoryStats[category]++;
               
               let alias;
-              // Handle different alias formats
               if (body.match(/^[a-z_][a-zA-Z0-9_-]*\(\)/)) {
-                // Function format
                 alias = body;
               } else if (body.includes('=')) {
-                // Already formatted alias
                 alias = body.startsWith('alias ') ? body : `alias ${body}`;
               } else {
-                // Simple alias format
                 alias = `alias ${body}`;
               }
               
@@ -421,21 +308,16 @@
             }
           });
           
-          // Validate selection
           if (selectedCount === 0) {
-            showNotification('Please select at least one alias before downloading.', 'warning');
+            showToast('Please select at least one alias before downloading.', 'warning');
             return;
           }
           
-          // Generate comprehensive header
+          // Generate content (same logic as before)
           const now = new Date();
           const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
           const dateString = now.toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
+            year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
           });
           
           const header = [
@@ -457,7 +339,6 @@
             ""
           ];
           
-          // Add category breakdown in header
           if (Object.keys(categoryStats).length > 1) {
             header.push("# Category breakdown:");
             Object.entries(categoryStats)
@@ -468,7 +349,6 @@
             header.push("#", "");
           }
           
-          // Group aliases by category for better organization
           const categorizedAliases = {};
           aliases.forEach(alias => {
             if (!categorizedAliases[alias.category]) {
@@ -477,37 +357,26 @@
             categorizedAliases[alias.category].push(alias.content);
           });
           
-          // Build content with category sections
           const content = [];
           content.push(...header);
           
-          // Sort categories alphabetically
           const sortedCategories = Object.keys(categorizedAliases).sort();
           
           sortedCategories.forEach((category, index) => {
-            // Add category header
             content.push(`# ${category.toUpperCase()} ALIASES`);
             content.push(`# ${categorizedAliases[category].length} aliases`);
             content.push("");
-            
-            // Add aliases for this category
             categorizedAliases[category].forEach(alias => {
               content.push(alias);
             });
-            
-            // Add spacing between categories (except last one)
             if (index < sortedCategories.length - 1) {
               content.push("", "");
             }
           });
           
-          // Add footer
           content.push("", "# End of generated aliases");
           
-          // Generate filename with timestamp
           const filename = `aliases_${timestamp}.sh`;
-          
-          // Create and trigger download
           const fileContent = content.join("\n");
           const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
           const url = URL.createObjectURL(blob);
@@ -516,32 +385,14 @@
           element.href = url;
           element.download = filename;
           element.style.display = 'none';
-          
-          // Add to DOM, click, and clean up
           document.body.appendChild(element);
           element.click();
           document.body.removeChild(element);
           
-          // Clean up blob URL
           setTimeout(() => URL.revokeObjectURL(url), 1000);
           
-          // Show detailed success message
-          const categoryList = Object.entries(categoryStats)
-            .sort((a, b) => b[1] - a[1]) // Sort by count descending
-            .slice(0, 3) // Show top 3 categories
-            .map(([cat, count]) => `${cat} (${count})`)
-            .join(', ');
-            
-          const successMsg = `
-            <strong>Downloaded successfully!</strong><br>
-            📄 <strong>${filename}</strong><br>
-            📊 ${selectedCount} aliases from ${Object.keys(categoryStats).length} categories<br>
-            🏷️ Top categories: ${categoryList}
-          `;
+          showToast(`Downloaded ${selectedCount} aliases successfully!`, 'success');
           
-          showNotification(successMsg, 'success');
-          
-          // Track download analytics (if gtag is available)
           if (typeof gtag !== 'undefined') {
             gtag('event', 'download', {
               'event_category': 'aliases',
@@ -552,59 +403,79 @@
           
         } catch (error) {
           console.error('Download error:', error);
-          showNotification('Error generating download. Please try again.', 'danger');
+          showToast('Error generating download. Please try again.', 'error');
         } finally {
-          // Restore button state
-          downloadBtn.innerHTML = originalBtnText;
+          downloadBtn.innerHTML = originalContent;
           downloadBtn.disabled = false;
+          lucide.createIcons(); // Re-init icons for the button
         }
       }
 
       function do_select_all(state) {
-        $("input[type='checkbox']").each(function () {
-          this.checked = state;
+        document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+          checkbox.checked = state;
         });
         updateAllCounters();
       }
 
       function do_select(cardname, state) {
-        $("input." + cardname).each(function () {
-          this.checked = state;
+        // cardname is the class name
+        document.querySelectorAll(`input.${cardname}`).forEach(checkbox => {
+          checkbox.checked = state;
         });
         updateAllCounters();
       }
 
       function updateAllCounters() {
-        // Update global counter
-        let totalSelected = $("input[type='checkbox']:checked").length;
-        $('#selected-count').text(totalSelected);
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        const checked = document.querySelectorAll("input[type='checkbox']:checked");
+        
+        document.getElementById('selected-count').textContent = checked.length;
         
         // Update individual card counters
-        {% for key in aliases %}
-        updateCardCounter('{{ key }}');
-        {% endfor %}
+        // We need the list of keys. Since we are in JS, we can't iterate Jinja2 'aliases' directly
+        // But we can iterate the DOM elements that have IDs starting with 'count-'
+        document.querySelectorAll('[id^="count-"]').forEach(el => {
+          const key = el.id.replace('count-', '');
+          updateCardCounter(key);
+        });
       }
 
       function updateCardCounter(cardname) {
-        let checkedCount = $("input." + cardname + ":checked").length;
-        $('#count-' + cardname).text(checkedCount);
+        const checkedCount = document.querySelectorAll(`input.${cardname}:checked`).length;
+        document.getElementById('count-' + cardname).textContent = checkedCount;
       }
 
-      function showNotification(message, type = 'info') {
-        // Create notification element
-        let notification = $(`
-          <div class="alert alert-${type} alert-dismissible fade show position-fixed" 
-               style="top: 20px; right: 20px; z-index: 9999; min-width: 300px;" role="alert">
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          </div>
-        `);
+      function showToast(message, type = 'info') {
+        const container = document.getElementById('toast-container');
         
-        $('body').append(notification);
+        const toast = document.createElement('div');
+        toast.className = `pointer-events-auto flex items-center w-full max-w-xs p-4 space-x-4 text-sm rounded-lg shadow-lg border animate-in slide-in-from-right-full fade-in duration-300 ${
+          type === 'success' ? 'bg-background text-foreground border-border' :
+          type === 'error' ? 'bg-destructive text-destructive-foreground border-destructive' :
+          'bg-background text-foreground border-border'
+        }`;
         
-        // Auto-remove after 3 seconds
-        setTimeout(function() {
-          notification.alert('close');
+        let icon = '';
+        if (type === 'success') icon = '<i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>';
+        else if (type === 'error') icon = '<i data-lucide="alert-circle" class="w-5 h-5"></i>';
+        else icon = '<i data-lucide="info" class="w-5 h-5 text-blue-500"></i>';
+        
+        toast.innerHTML = `
+          ${icon}
+          <div class="flex-1 font-medium">${message}</div>
+          <button onclick="this.parentElement.remove()" class="ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 focus:ring-ring p-1.5 hover:bg-muted inline-flex h-8 w-8 items-center justify-center">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        `;
+        
+        container.appendChild(toast);
+        lucide.createIcons();
+        
+        // Auto remove
+        setTimeout(() => {
+          toast.classList.add('animate-out', 'fade-out', 'slide-out-to-right-full');
+          setTimeout(() => toast.remove(), 300);
         }, 3000);
       }
     </script>
