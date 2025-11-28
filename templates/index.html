@@ -229,6 +229,19 @@
       </div>
     </main>
 
+    <!-- Bottom Download Section -->
+    <section class="container mx-auto px-4 py-12 md:py-16">
+      <div class="max-w-xl mx-auto text-center space-y-6">
+        <p class="text-lg text-muted-foreground">
+          Ready to boost your productivity?
+        </p>
+        <button onclick="download()" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 shadow-lg shadow-primary/20">
+          <i data-lucide="download" class="mr-2 h-4 w-4"></i>
+          Download Aliases
+        </button>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="border-t border-border/40 py-8 bg-muted/20">
       <div class="container mx-auto px-4 text-center">
@@ -256,13 +269,15 @@
       });
 
       function download() {
-        const downloadBtn = document.querySelector('button[onclick="download()"]');
-        const originalContent = downloadBtn.innerHTML;
+        const downloadBtns = document.querySelectorAll('button[onclick="download()"]');
+        const originalContents = Array.from(downloadBtns).map(btn => btn.innerHTML);
         
-        // Loading state
-        downloadBtn.innerHTML = '<i data-lucide="loader-2" class="mr-2 h-4 w-4 animate-spin"></i> Generating...';
+        // Loading state for all download buttons
+        downloadBtns.forEach(btn => {
+          btn.innerHTML = '<i data-lucide="loader-2" class="mr-2 h-4 w-4 animate-spin"></i> Generating...';
+          btn.disabled = true;
+        });
         lucide.createIcons();
-        downloadBtn.disabled = true;
         
         try {
           const aliases = [];
@@ -310,6 +325,11 @@
           
           if (selectedCount === 0) {
             showToast('Please select at least one alias before downloading.', 'warning');
+            downloadBtns.forEach((btn, index) => {
+              btn.innerHTML = originalContents[index];
+              btn.disabled = false;
+            });
+            lucide.createIcons();
             return;
           }
           
@@ -405,9 +425,11 @@
           console.error('Download error:', error);
           showToast('Error generating download. Please try again.', 'error');
         } finally {
-          downloadBtn.innerHTML = originalContent;
-          downloadBtn.disabled = false;
-          lucide.createIcons(); // Re-init icons for the button
+          downloadBtns.forEach((btn, index) => {
+            btn.innerHTML = originalContents[index];
+            btn.disabled = false;
+          });
+          lucide.createIcons(); // Re-init icons for the buttons
         }
       }
 
