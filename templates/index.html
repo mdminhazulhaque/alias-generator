@@ -246,7 +246,7 @@
     <footer class="border-t border-border/40 py-8 bg-muted/20">
       <div class="container mx-auto px-4 text-center">
         <p class="text-sm text-muted-foreground">
-          &copy; 2025 Md. Minhazul Haque. All rights reserved.
+          &copy; <span id="current-year"></span> Md. Minhazul Haque. All rights reserved.
         </p>
       </div>
     </footer>
@@ -261,11 +261,14 @@
       // State management
       document.addEventListener('DOMContentLoaded', () => {
         updateAllCounters();
-        
+
         // Add change event listeners to all checkboxes
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
           checkbox.addEventListener('change', updateAllCounters);
         });
+
+        // Set current year dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
       });
 
       function download() {
